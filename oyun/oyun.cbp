@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="oyun" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/oyun" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/oyun" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++17" />
+			<Add option="-std=c17" />
+			<Add option="-m64" />
+			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/include" />
+			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/include" />
+			<Add directory="C:/betiklik/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add option="-lSDL2_image -lSDL2_ttf" />
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="C:/Program Files/CodeBlocks/MinGW/lib/libbox2d.a" />
+			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/lib" />
+			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/lib" />
+			<Add directory="C:/betiklik/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
+		</ExtraCommands>
+		<Unit filename="ALANLAR/alan_basliklar.hpp" />
+		<Unit filename="ALANLAR/ana_menu.hpp" />
+		<Unit filename="ALANLAR/secenekler_menu.hpp" />
+		<Unit filename="include/Doku.hpp" />
+		<Unit filename="include/Yazi.hpp" />
+		<Unit filename="include/basliklar.hpp" />
+		<Unit filename="include/genelAyar.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Doku.cpp" />
+		<Unit filename="src/Yazi.cpp" />
+		<Unit filename="src/genelAyar.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
