@@ -59,6 +59,7 @@
 		</ExtraCommands>
 		<Unit filename="ALANLAR/alan_basliklar.hpp" />
 		<Unit filename="ALANLAR/ana_menu.hpp" />
+		<Unit filename="ALANLAR/kayit_secim.hpp" />
 		<Unit filename="ALANLAR/secenekler_menu.hpp" />
 		<Unit filename="include/Doku.hpp" />
 		<Unit filename="include/Yazi.hpp" />

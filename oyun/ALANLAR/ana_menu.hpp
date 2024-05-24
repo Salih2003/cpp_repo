@@ -51,7 +51,7 @@ class ANA_MENU
 
         int olayYonetimi()
         {
-            std::cout << (int)zaman.GetMilliseconds() << " " << sayac << std::endl;
+            //std::cout << (int)zaman.GetMilliseconds() << " " << sayac << std::endl;
             const Uint8* klavyeDurum = SDL_GetKeyboardState(NULL);
             if(klavyeDurum[SDL_SCANCODE_UP])
             {
@@ -65,7 +65,7 @@ class ANA_MENU
                     }
                 }
             }
-            if(zaman.GetMilliseconds() >= 200.00F && zaman.GetMilliseconds() >= 500.00F)
+            if(zaman.GetMilliseconds() >= 200.00F && zaman.GetMilliseconds() >= 400.00F)
             {
                 zaman.Reset();
                 dur = false;
@@ -85,6 +85,11 @@ class ANA_MENU
             //secim oldumu baslangic
             if(klavyeDurum[SDL_SCANCODE_Z])
             {
+                if(sayac == 0)
+                {
+                    gecilmeDurumu = true;
+                    return 0;
+                }
                 if(sayac == 1)
                 {
                     gecilmeDurumu = true;
@@ -122,7 +127,7 @@ class ANA_MENU
         const int EKRAN_GENISLIK1 = 640;
         const int EKRAN_YUKSEKLIK1 = 480;
 
-        int sayac = 0;//ana menu secenklerden hangisinde oldugunu gosterir.
+        int8_t sayac = 0;//ana menu secenklerden hangisinde oldugunu gosterir.
 
         TTF_Font* buyukYazi;
         TTF_Font* ortaYazi;

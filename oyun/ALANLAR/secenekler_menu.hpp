@@ -59,10 +59,65 @@ class SECENEKLER_MENU
         ///
         void ciz(SDL_Renderer* isleyici)
         {
+            SDL_SetRenderDrawColor(isleyici,ak.r,ak.g,ak.b,ak.a);
+            //koşullar boyutu başlangıç o_O
+            switch(sesDuzeyiSirasi[0])
+            {
+                case 0:
+
+                    break;
+                case 1:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[0]);
+                    break;
+                case 2:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[0]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[1]);
+                    break;
+                case 3:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[0]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[1]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[2]);
+                    break;
+                case 4:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[0]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[1]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[2]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[3]);
+                    break;
+
+            }
+
+            switch(sesDuzeyiSirasi[1])
+            {
+                case 0:
+
+                    break;
+                case 1:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[4]);
+                    break;
+                case 2:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[4]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[5]);
+                    break;
+                case 3:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[4]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[5]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[6]);
+                    break;
+                case 4:
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[4]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[5]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[6]);
+                    SDL_RenderFillRect(isleyici,&sesSeviyesi[7]);
+                    break;
+
+            }
+            //koşullar boyutu sonu \(0o0)/
+
             for(int i = 0;i <= 7;i++)
             {
-                SDL_SetRenderDrawColor(isleyici,ak.r,ak.g,ak.b,ak.a);
-                SDL_RenderFillRect(isleyici,&sesSeviyesi[i]);
+//                SDL_SetRenderDrawColor(isleyici,ak.r,ak.g,ak.b,ak.a);
+//                SDL_RenderFillRect(isleyici,&sesSeviyesi[i]);
                 SDL_RenderDrawRect(isleyici,&sesSeviyesi[i]);
             }
             yazilar[0].ciz(isleyici,30,20);
@@ -126,6 +181,87 @@ class SECENEKLER_MENU
                             imlecSirasi++;
                     }
                 }
+                if(olay->key.keysym.sym == SDLK_RIGHT)
+                {
+                    if(imlecSirasi == 1)
+                    {
+                        if(tusBirakilmaDurumu)
+                        {
+                            tusBirakilmaDurumu = false;
+                            if(sesDuzeyiSirasi[0] < 5)
+                            {
+                                if(sesDuzeyiSirasi[0] == 4)
+                                {
+                                    sesDuzeyiSirasi[0] = 4;
+                                }
+                                else
+                                {
+                                    sesDuzeyiSirasi[0]++;
+                                }
+                            }
+                        }
+                    }
+
+                    if(imlecSirasi == 2)
+                    {
+                        if(tusBirakilmaDurumu)
+                        {
+                            tusBirakilmaDurumu = false;
+                            if(sesDuzeyiSirasi[1] < 5)
+                            {
+                                if(sesDuzeyiSirasi[1] == 4)
+                                {
+                                    sesDuzeyiSirasi[1] = 4;
+                                }
+                                else
+                                {
+                                    sesDuzeyiSirasi[1]++;
+                                }
+                            }
+                        }
+                    }
+                }
+                if(olay->key.keysym.sym == SDLK_LEFT)
+                {
+                    if(imlecSirasi == 1)
+                    {
+                        if(tusBirakilmaDurumu)
+                        {
+                            tusBirakilmaDurumu = false;
+                            if(sesDuzeyiSirasi[0] > -1)
+                            {
+                                if(sesDuzeyiSirasi[0] == 0)
+                                {
+                                    sesDuzeyiSirasi[0] = 0;
+                                }
+                                else
+                                {
+                                    sesDuzeyiSirasi[0]--;
+                                }
+                            }
+                        }
+                    }
+
+                    if(imlecSirasi == 2)
+                    {
+                        if(tusBirakilmaDurumu)
+                        {
+                            tusBirakilmaDurumu = false;
+                            if(sesDuzeyiSirasi[1] > -1)
+                            {
+                                if(sesDuzeyiSirasi[1] == 0)
+                                {
+                                    sesDuzeyiSirasi[1] = 0;
+                                }
+                                else
+                                {
+                                    sesDuzeyiSirasi[1]--;
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
 
             if(olay->type == SDL_KEYUP)
@@ -187,7 +323,7 @@ class SECENEKLER_MENU
         std::string dilSecenegi = "Türkçe";
         int imlecX, imlecY;
         public:
-        uint8_t imlecSirasi = 1, sesDuzeyiSirasi[2] = {4,4};
+        int8_t imlecSirasi = 1, sesDuzeyiSirasi[2] = {4,4};
 };
 
 #endif // SECENEKLER_MENU_HPP

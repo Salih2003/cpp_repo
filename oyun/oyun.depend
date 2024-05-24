@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1716111446 source:c:\c_proj\oyun\main.cpp
+1716577939 source:c:\c_proj\oyun\main.cpp
 	<locale.h>
 	"ALANLAR/ana_menu.hpp"
 	"ALANLAR/secenekler_menu.hpp"
+	"ALANLAR/kayit_secim.hpp"
 
 1707573556 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -433,7 +434,7 @@
 1712406584 c:\c_proj\oyun\include\yazi.hpp
 	"basliklar.hpp"
 
-1716199279 c:\c_proj\oyun\alanlar\ana_menu.hpp
+1716577284 c:\c_proj\oyun\alanlar\ana_menu.hpp
 	"alan_basliklar.hpp"
 
 1707745674 c:\c_proj\oyun\alanlar\alan_basliklar.hpp
@@ -441,6 +442,9 @@
 	"Doku.hpp"
 	"Yazi.hpp"
 
-1716111334 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
+1716226235 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
+	"alan_basliklar.hpp"
+
+1716578014 c:\c_proj\oyun\alanlar\kayit_secim.hpp
 	"alan_basliklar.hpp"
 

@@ -2,18 +2,21 @@
 bool cikis = false;
 #include "ALANLAR/ana_menu.hpp"
 #include "ALANLAR/secenekler_menu.hpp"
+#include "ALANLAR/kayit_secim.hpp"
 const int EKRAN_GENISLIK = 640;
 const int EKRAN_YUKSEKLIK = 480;
 int8_t tamEkranSayac = 0;
 genelAyar ayar;
 ANA_MENU menu;
 SECENEKLER_MENU s_menu;
+KAYIT_SECIM kayit;
 int main( int argc, char * argv[] )
 {
     setlocale(LC_ALL, "Turkish");
     ayar.giris("DENEME PROJESİ",EKRAN_GENISLIK,EKRAN_YUKSEKLIK);
     menu.tanimlamalar(ayar.isleyiciAl());
     s_menu.tanimlamalar(ayar.isleyiciAl());
+    kayit.tanimlamalar(ayar.isleyiciAl());
     while(cikis == false)
     {
         SDL_Event olay;
@@ -57,6 +60,9 @@ int main( int argc, char * argv[] )
         {
             switch(menu.olayYonetimi())
             {
+                case 0:
+                    kayit.gecilmeDurumuAyarla(false);
+                    break;
                 case 1:
                     s_menu.gecilmeDurumunuAyarla(false);
                     break;
@@ -80,6 +86,10 @@ int main( int argc, char * argv[] )
         if(s_menu.gecilmeDurumunuVer() == false)
         {
             s_menu.ciz(ayar.isleyiciAl());
+        }
+        if(kayit.gecilmeDurumuVer() == false)
+        {
+            kayit.ciz();
         }
         ///render son
         ayar.ekranYenile();
