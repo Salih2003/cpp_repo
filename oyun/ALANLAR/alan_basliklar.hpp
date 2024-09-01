@@ -5,4 +5,6 @@
 #include "Doku.hpp"
 #include "Yazi.hpp"
 
+#include <iostream>
+
 #endif // ALAN_BASLIKLAR_HPP

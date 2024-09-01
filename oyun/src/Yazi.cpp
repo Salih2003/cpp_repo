@@ -38,3 +38,9 @@ void Yazi::ciz(SDL_Renderer* isleyici,int x, int y)
     SDL_Rect kare = {this->x,this->y,w,h};
     SDL_RenderCopy(isleyici,doku,nullptr,&kare);
 }
+
+void Yazi::renkMod(Uint8 r, Uint8 g, Uint8 b)
+{
+    SDL_SetTextureColorMod(doku,r,g,b);
+    return;
+}

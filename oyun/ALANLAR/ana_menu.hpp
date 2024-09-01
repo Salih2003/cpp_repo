@@ -65,7 +65,7 @@ class ANA_MENU
                     }
                 }
             }
-            if(zaman.GetMilliseconds() >= 200.00F && zaman.GetMilliseconds() >= 400.00F)
+            if(zaman.GetMilliseconds() >= 200.00F && zaman.GetMilliseconds() >= 500.00F)
             {
                 zaman.Reset();
                 dur = false;

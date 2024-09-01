@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1716577939 source:c:\c_proj\oyun\main.cpp
+1725202036 source:c:\c_proj\oyun\main.cpp
 	<locale.h>
 	"ALANLAR/ana_menu.hpp"
 	"ALANLAR/secenekler_menu.hpp"
@@ -428,23 +428,24 @@
 	"SDL2/begin_code.h"
 	"SDL2/close_code.h"
 
-1712406584 source:c:\c_proj\oyun\src\yazi.cpp
+1724690258 source:c:\c_proj\oyun\src\yazi.cpp
 	"Yazi.hpp"
 
-1712406584 c:\c_proj\oyun\include\yazi.hpp
+1724690157 c:\c_proj\oyun\include\yazi.hpp
 	"basliklar.hpp"
 
-1716577284 c:\c_proj\oyun\alanlar\ana_menu.hpp
+1724438223 c:\c_proj\oyun\alanlar\ana_menu.hpp
 	"alan_basliklar.hpp"
 
-1707745674 c:\c_proj\oyun\alanlar\alan_basliklar.hpp
+1724439161 c:\c_proj\oyun\alanlar\alan_basliklar.hpp
 	"genelAyar.hpp"
 	"Doku.hpp"
 	"Yazi.hpp"
+	<iostream>
 
 1716226235 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
 	"alan_basliklar.hpp"
 
-1716744899 c:\c_proj\oyun\alanlar\kayit_secim.hpp
+1725202175 c:\c_proj\oyun\alanlar\kayit_secim.hpp
 	"alan_basliklar.hpp"
 
