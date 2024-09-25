@@ -53,6 +53,22 @@ class SECENEKLER_MENU
                 }
             }
             ///ses seviye karelerinin boyutlandırılması ve konumlandirilmasi sonu
+
+            kayit_dos.open("DOSYALAR/ayarlar.txt",std::ios::in | std::ios::out);
+            if(!kayit_dos.is_open())
+            {
+                std::cerr << "DOSYA AÇILAMADI" << std::endl;
+            }
+            else
+            {// 0 48 1 49 2 50 3 51 4 52
+                std::string a;
+                kayit_dos.seekg(0);
+                std::getline(kayit_dos,a);
+                std::string b = a.substr(0,1), c = a.substr(2,1);
+                sesDuzeyiSirasi[0] = std::stoi(b);
+                sesDuzeyiSirasi[1] = std::stoi(c);
+                std::cout << (int)sesDuzeyiSirasi[0] << " " << (int)sesDuzeyiSirasi[1] << std::endl;
+            }
         }
         ///
         ///
@@ -60,7 +76,7 @@ class SECENEKLER_MENU
         void ciz(SDL_Renderer* isleyici)
         {
             SDL_SetRenderDrawColor(isleyici,ak.r,ak.g,ak.b,ak.a);
-            //koşullar boyutu başlangıç o_O
+
             switch(sesDuzeyiSirasi[0])
             {
                 case 0:
@@ -112,7 +128,7 @@ class SECENEKLER_MENU
                     break;
 
             }
-            //koşullar boyutu sonu \(0o0)/
+
 
             for(int i = 0;i <= 7;i++)
             {
@@ -197,6 +213,8 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[0]++;
+                                    //kayit_dos.seekp(0);
+                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[0]);
                                 }
                             }
                         }
@@ -216,6 +234,8 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[1]++;
+                                    //kayit_dos.seekp(24);
+                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[1]);
                                 }
                             }
                         }
@@ -237,6 +257,8 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[0]--;
+                                    //kayit_dos.seekp(0);
+                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[0]);
                                 }
                             }
                         }
@@ -256,6 +278,8 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[1]--;
+                                    //kayit_dos.seekp(24);
+                                    //kayit_dos << std::endl << std::to_string(sesDuzeyiSirasi[1]);
                                 }
                             }
                         }
@@ -295,6 +319,12 @@ class SECENEKLER_MENU
             {
                 if(imlecSirasi == 5)
                 {
+                    kayitStr.str("");
+                    kayitStr << std::to_string(static_cast<int> (sesDuzeyiSirasi[0])) << " " << std::to_string(static_cast<int> (sesDuzeyiSirasi[1])) << " " << dilSecenegi;
+                    kayit_dos.seekp(0,std::ios::beg);
+                    kayit_dos << std::flush;
+                    kayit_dos.seekp(0,std::ios::beg);
+                    kayit_dos << kayitStr.str();
                     kapat();
                     return 2;
                 }
@@ -320,10 +350,13 @@ class SECENEKLER_MENU
         const int EKRAN_YUKSEKLIK1 = 480;
         bool gecilmeDurumu = true;
         bool tusBirakilmaDurumu = true;
-        std::string dilSecenegi = "Türkçe";
+        std::string dilSecenegi = "Turkçe";
+        std::stringstream kayitStr;
         int imlecX, imlecY;
         public:
         int8_t imlecSirasi = 1, sesDuzeyiSirasi[2] = {4,4};
+
+        std::fstream kayit_dos;
 };
 
 #endif // SECENEKLER_MENU_HPP

@@ -6,20 +6,27 @@ bool cikis = false;
 const int EKRAN_GENISLIK = 640;
 const int EKRAN_YUKSEKLIK = 480;
 int8_t tamEkranSayac = 0;
+#define KARE_ODU 1000 / 60
 genelAyar ayar;
 ANA_MENU ana_menu;
 SECENEKLER_MENU sec_menu;
 KAYIT_SECIM kayit_menu;
 int main( int argc, char * argv[] )
 {
+
     setlocale(LC_ALL, "Turkish");
 
     ayar.giris("DENEME, PROJESİ",EKRAN_GENISLIK,EKRAN_YUKSEKLIK);
     ana_menu.tanimlamalar(ayar.isleyiciAl());
     sec_menu.tanimlamalar(ayar.isleyiciAl());
     kayit_menu.tanimlamalar(ayar.isleyiciAl());
+
+    Uint32 kareBasla, kareOdu;
+    static int frameCount = 0;
+    static Uint32 lastTime = 0;
+
     while(cikis == false)
-    {
+    {   kareBasla = SDL_GetTicks();
         SDL_Event olay;
         while(SDL_PollEvent(&olay) != 0)
         {
@@ -32,6 +39,7 @@ int main( int argc, char * argv[] )
                 kayit_menu.kapat();
                 cikis = true;
             }
+
             ///tam ekrana geçiş olayı yakalama
             if(olay.type == SDL_KEYDOWN && olay.key.keysym.sym == SDLK_F4)
             {
@@ -67,25 +75,26 @@ int main( int argc, char * argv[] )
                     ana_menu.gecilmeDurumunuAyarla(false);
                 }
             }
+
         }
 
-        if(!ana_menu.gecilmeDurumunuVer())
-        {
-            switch(ana_menu.olayYonetimi())
+            if(!ana_menu.gecilmeDurumunuVer())
             {
-                case 0:
-                    kayit_menu.gecilmeDurumuAyarla(false);
-                    break;
-                case 1:
-                    sec_menu.gecilmeDurumunuAyarla(false);
-                    break;
-                case 2:
-                    cikis = true;
-                    goto kapanis;
-                    break;
+                switch(ana_menu.olayYonetimi())
+                {
+                    case 0:
+                        kayit_menu.gecilmeDurumuAyarla(false);
+                        break;
+                    case 1:
+                        sec_menu.gecilmeDurumunuAyarla(false);
+                        break;
+                    case 2:
+                        cikis = true;
+                        goto kapanis;
+                        break;
 
+                }
             }
-        }
 
         ayar.ekranRengiAyarla(0,0,0);
         ayar.ekranTemizle();
@@ -103,6 +112,21 @@ int main( int argc, char * argv[] )
                 kayit_menu.ciz();
         }
         ayar.ekranYenile();
+
+        frameCount++;
+        Uint32 currentTime = SDL_GetTicks();
+        if (currentTime - lastTime >= 1000)
+        { // Her bir saniyede FPS hesapla
+            std::printf("FPS: %d\n", frameCount);
+            frameCount = 0;
+            lastTime = currentTime;
+        }
+
+        kareOdu = SDL_GetTicks() - kareBasla;
+        if (KARE_ODU > kareOdu) {
+            SDL_Delay(KARE_ODU - kareOdu);
+            //std::cout << KARE_ODU - kareOdu << std::endl;
+        }
     }
 
     return 0;

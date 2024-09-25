@@ -21,16 +21,19 @@ class KAYIT_SECIM
         yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],"ODA ADI",ak);
         yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],"Devam",ak);
         yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],"Sil",ak);
+        yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], "Yeni",ak);
 
         yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
         yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],"ODA ADI",ak);
         yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],"Devam",ak);
         yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],"Sil",ak);
+        yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], "Yeni",ak);
 
         yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
         yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],"ODA ADI",ak);
         yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],"Devam",ak);
         yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],"Sil",ak);
+        yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], "Yeni",ak);
 
         yazilar[GERI].yaziOlustur(this->isleyici,fontt[2],"GERI",ak);
     }
@@ -79,16 +82,19 @@ class KAYIT_SECIM
         yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[0].y + 20);
         yazilar[KAYIT_1_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[0].y + 80);
         yazilar[KAYIT_1_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[0].y + 80);
+        yazilar[KAYIT_1_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[0].y + 80);
 
         yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + 5);
         yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + 20);
         yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + 80);
         yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + 80);
+        yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + 80);
 
         yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + 5);
         yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + 20);
         yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y + 80);
         yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y + 80);
+        yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + 80);
 
         yazilar[GERI].ciz(isleyici,640/2 - 30,480 - 50);
     }

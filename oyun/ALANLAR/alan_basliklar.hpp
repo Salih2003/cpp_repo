@@ -6,5 +6,7 @@
 #include "Yazi.hpp"
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 #endif // ALAN_BASLIKLAR_HPP
