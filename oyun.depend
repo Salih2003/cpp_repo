@@ -1,0 +1,889 @@
+# depslib dependency file v1.0
+1727438480 source:c:\c_proj\oyun\main.cpp
+	<locale.h>
+	"ALANLAR/ana_menu.hpp"
+	"ALANLAR/secenekler_menu.hpp"
+	"ALANLAR/kayit_secim.hpp"
+
+1707573556 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_guid.h"
+	"SDL_haptic.h"
+	"SDL_hidapi.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_metal.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"SDL_locale.h"
+	"SDL_misc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+	<winsdkver.h>
+	<sdkddkver.h>
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_platform.h
+	<AvailabilityMacros.h>
+	<TargetConditionals.h>
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\begin_code.h
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\close_code.h
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<endian.h>
+	<endian.h>
+	<sys/endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<arm_neon.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<arm64intr.h>
+	<arm64_neon.h>
+	<mm3dnow.h>
+	<lsxintrin.h>
+	<lasxintrin.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_guid.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_guid.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_hidapi.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_metal.h
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_locale.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1706793368 c:\betiklik\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl_misc.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1707747387 source:c:\c_proj\oyun\src\genelayar.cpp
+	"genelAyar.hpp"
+
+1708272376 c:\c_proj\oyun\include\genelayar.hpp
+	"basliklar.hpp"
+
+1707656874 c:\betiklik\sdl2_image-2.8.2\x86_64-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_version.h"
+	"SDL2/begin_code.h"
+	"SDL2/close_code.h"
+
+1711804788 c:\c_proj\oyun\include\basliklar.hpp
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<box2d/box2d.h>
+	<iostream>
+
+1712406703 source:c:\c_proj\oyun\src\doku.cpp
+	"Doku.hpp"
+
+1712406702 c:\c_proj\oyun\include\doku.hpp
+	"basliklar.hpp"
+
+1707672179 c:\betiklik\sdl2_ttf-2.22.0\x86_64-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL2/SDL.h"
+	"SDL2/begin_code.h"
+	"SDL2/close_code.h"
+
+1727457761 source:c:\c_proj\oyun\src\yazi.cpp
+	"Yazi.hpp"
+
+1727457702 c:\c_proj\oyun\include\yazi.hpp
+	"basliklar.hpp"
+
+1729776055 c:\c_proj\oyun\alanlar\ana_menu.hpp
+	"alan_basliklar.hpp"
+
+1727448899 c:\c_proj\oyun\alanlar\alan_basliklar.hpp
+	"genelAyar.hpp"
+	"Doku.hpp"
+	"Yazi.hpp"
+	<iostream>
+	<fstream>
+	<sstream>
+	<nlohmann/json.hpp>
+
+1728122137 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
+	"alan_basliklar.hpp"
+
+1725534602 c:\c_proj\oyun\alanlar\kayit_secim.hpp
+	"alan_basliklar.hpp"
+
+1727438199 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\json.hpp
+	<algorithm>
+	<cstddef>
+	<functional>
+	<initializer_list>
+	<iosfwd>
+	<iterator>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/adl_serializer.hpp>
+	<nlohmann/byte_container_with_subtype.hpp>
+	<nlohmann/detail/conversions/from_json.hpp>
+	<nlohmann/detail/conversions/to_json.hpp>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/hash.hpp>
+	<nlohmann/detail/input/binary_reader.hpp>
+	<nlohmann/detail/input/input_adapters.hpp>
+	<nlohmann/detail/input/lexer.hpp>
+	<nlohmann/detail/input/parser.hpp>
+	<nlohmann/detail/iterators/internal_iterator.hpp>
+	<nlohmann/detail/iterators/iter_impl.hpp>
+	<nlohmann/detail/iterators/iteration_proxy.hpp>
+	<nlohmann/detail/iterators/json_reverse_iterator.hpp>
+	<nlohmann/detail/iterators/primitive_iterator.hpp>
+	<nlohmann/detail/json_custom_base_class.hpp>
+	<nlohmann/detail/json_pointer.hpp>
+	<nlohmann/detail/json_ref.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/string_escape.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/output/binary_writer.hpp>
+	<nlohmann/detail/output/output_adapters.hpp>
+	<nlohmann/detail/output/serializer.hpp>
+	<nlohmann/detail/value_t.hpp>
+	<nlohmann/json_fwd.hpp>
+	<nlohmann/ordered_map.hpp>
+	<any>
+	<string_view>
+	<nlohmann/detail/macro_unscope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\adl_serializer.hpp
+	<utility>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/conversions/from_json.hpp>
+	<nlohmann/detail/conversions/to_json.hpp>
+	<nlohmann/detail/meta/identity_tag.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\abi_macros.hpp
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\conversions\from_json.hpp
+	<algorithm>
+	<array>
+	<forward_list>
+	<iterator>
+	<map>
+	<string>
+	<tuple>
+	<type_traits>
+	<unordered_map>
+	<utility>
+	<valarray>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/identity_tag.hpp>
+	<nlohmann/detail/meta/std_fs.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\exceptions.hpp
+	<cstddef>
+	<exception>
+	<numeric>
+	<stdexcept>
+	<string>
+	<vector>
+	<nlohmann/detail/value_t.hpp>
+	<nlohmann/detail/string_escape.hpp>
+	<nlohmann/detail/input/position_t.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/string_concat.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\value_t.hpp
+	<array>
+	<cstddef>
+	<cstdint>
+	<string>
+	<nlohmann/detail/macro_scope.hpp>
+	<compare>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\macro_scope.hpp
+	<utility>
+	<nlohmann/detail/meta/detected.hpp>
+	<nlohmann/thirdparty/hedley/hedley.hpp>
+	<nlohmann/detail/abi_macros.hpp>
+	<version>
+	<cstdlib>
+	<cassert>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\detected.hpp
+	<type_traits>
+	<nlohmann/detail/meta/void_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\void_t.hpp
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\thirdparty\hedley\hedley.hpp
+	<stdint.h>
+	<stdint.h>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\string_escape.hpp
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\position_t.hpp
+	<cstddef>
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\cpp_future.hpp
+	<array>
+	<cstddef>
+	<type_traits>
+	<utility>
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\type_traits.hpp
+	<limits>
+	<type_traits>
+	<utility>
+	<tuple>
+	<string>
+	<nlohmann/detail/iterators/iterator_traits.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/call_std/begin.hpp>
+	<nlohmann/detail/meta/call_std/end.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/detected.hpp>
+	<nlohmann/json_fwd.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\iterator_traits.hpp
+	<iterator>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/meta/void_t.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\call_std\begin.hpp
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\call_std\end.hpp
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\json_fwd.hpp
+	<cstdint>
+	<map>
+	<memory>
+	<string>
+	<vector>
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\string_concat.hpp
+	<cstring>
+	<string>
+	<utility>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/detected.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\identity_tag.hpp
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\std_fs.hpp
+	<nlohmann/detail/macro_scope.hpp>
+	<experimental/filesystem>
+	<filesystem>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\conversions\to_json.hpp
+	<algorithm>
+	<iterator>
+	<string>
+	<tuple>
+	<type_traits>
+	<utility>
+	<valarray>
+	<vector>
+	<nlohmann/detail/iterators/iteration_proxy.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/std_fs.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\iteration_proxy.hpp
+	<cstddef>
+	<iterator>
+	<string>
+	<tuple>
+	<utility>
+	<ranges>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\byte_container_with_subtype.hpp
+	<cstdint>
+	<tuple>
+	<utility>
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\hash.hpp
+	<cstdint>
+	<cstddef>
+	<functional>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\binary_reader.hpp
+	<algorithm>
+	<array>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<cstring>
+	<iterator>
+	<limits>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/input/input_adapters.hpp>
+	<nlohmann/detail/input/json_sax.hpp>
+	<nlohmann/detail/input/lexer.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/is_sax.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\input_adapters.hpp
+	<array>
+	<cstddef>
+	<cstring>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<type_traits>
+	<utility>
+	<cstdio>
+	<istream>
+	<nlohmann/detail/iterators/iterator_traits.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\json_sax.hpp
+	<cstddef>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/string_concat.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\lexer.hpp
+	<array>
+	<clocale>
+	<cstddef>
+	<cstdio>
+	<cstdlib>
+	<initializer_list>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/input/input_adapters.hpp>
+	<nlohmann/detail/input/position_t.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\meta\is_sax.hpp
+	<cstdint>
+	<utility>
+	<string>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/meta/detected.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\input\parser.hpp
+	<cmath>
+	<cstdint>
+	<functional>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/input/input_adapters.hpp>
+	<nlohmann/detail/input/json_sax.hpp>
+	<nlohmann/detail/input/lexer.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/is_sax.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\internal_iterator.hpp
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/iterators/primitive_iterator.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\primitive_iterator.hpp
+	<cstddef>
+	<limits>
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\iter_impl.hpp
+	<iterator>
+	<type_traits>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/iterators/internal_iterator.hpp>
+	<nlohmann/detail/iterators/primitive_iterator.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\iterators\json_reverse_iterator.hpp
+	<cstddef>
+	<iterator>
+	<utility>
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\json_custom_base_class.hpp
+	<type_traits>
+	<nlohmann/detail/abi_macros.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\json_pointer.hpp
+	<algorithm>
+	<cctype>
+	<cerrno>
+	<cstdlib>
+	<iosfwd>
+	<limits>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/string_escape.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\json_ref.hpp
+	<initializer_list>
+	<utility>
+	<nlohmann/detail/abi_macros.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\output\binary_writer.hpp
+	<algorithm>
+	<array>
+	<map>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<string>
+	<utility>
+	<vector>
+	<nlohmann/detail/input/binary_reader.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/output/output_adapters.hpp>
+	<nlohmann/detail/string_concat.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\output\output_adapters.hpp
+	<algorithm>
+	<cstddef>
+	<iterator>
+	<memory>
+	<string>
+	<vector>
+	<ios>
+	<ostream>
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\output\serializer.hpp
+	<algorithm>
+	<array>
+	<clocale>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<limits>
+	<string>
+	<iomanip>
+	<type_traits>
+	<utility>
+	<nlohmann/detail/conversions/to_chars.hpp>
+	<nlohmann/detail/exceptions.hpp>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/cpp_future.hpp>
+	<nlohmann/detail/output/binary_writer.hpp>
+	<nlohmann/detail/output/output_adapters.hpp>
+	<nlohmann/detail/string_concat.hpp>
+	<nlohmann/detail/value_t.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\conversions\to_chars.hpp
+	<array>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<type_traits>
+	<nlohmann/detail/macro_scope.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\ordered_map.hpp
+	<functional>
+	<initializer_list>
+	<iterator>
+	<memory>
+	<stdexcept>
+	<type_traits>
+	<utility>
+	<vector>
+	<nlohmann/detail/macro_scope.hpp>
+	<nlohmann/detail/meta/type_traits.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\detail\macro_unscope.hpp
+	<nlohmann/thirdparty/hedley/hedley_undef.hpp>
+
+1725560904 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\thirdparty\hedley\hedley_undef.hpp
+
