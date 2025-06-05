@@ -14,11 +14,60 @@ class ANA_MENU
             kucukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",50);
             if(buyukYazi == NULL)
                 std::cerr << "hata " << TTF_GetError() << std::endl;
-            yazilar[0].yaziOlustur(isle,buyukYazi,"Başlık",ak);
-            yazilar[1].yaziOlustur(isle,kucukYazi,"Başla",ak);
-            yazilar[2].yaziOlustur(isle,kucukYazi,"Ayarlar",ak);
-            yazilar[3].yaziOlustur(isle,kucukYazi,"Çık",ak);
+
             belirtmeKare = {EKRAN_GENISLIK1/4 - 5,EKRAN_YUKSEKLIK1/3+60,110,30};
+
+            ayarDos.open("DOSYALAR/ayarlar.json",std::ios::binary);
+            if(!ayarDos.is_open())
+                std::cerr << "DOSYA AÇILAMADI" << std::endl;
+            else
+            {
+                ayarDos.seekg(0,std::ios::end);
+                if(ayarDos.tellg() == 0)
+                {
+                    std::cout << "Dosya boş" << std::endl;
+                    ayarJSON["dil"] = "Türkçe";
+                    dil = ayarJSON["dil"];
+                    ayarDos.seekg(0,std::ios::beg);
+                }
+                else
+                {
+                    ayarDos.seekg(0,std::ios::beg);
+                    ayarDos >> ayarJSON;
+
+                    dil = ayarJSON["dil"];
+
+                    dilDosyasi[0].open("DOSYALAR/turkce.json");
+                    dilDosyasi[0] >> dilJSON[0];
+                    dilDosyasi[1].open("DOSYALAR/english.json");
+                    dilDosyasi[1] >> dilJSON[1];
+                    dilDosyasi[2].open("DOSYALAR/custom.json");
+                    dilDosyasi[2] >> dilJSON[2];
+
+                    if(dil == "Türkçe")
+                    {
+                        yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[0]["başlık"],ak);
+                        yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[0]["başla"],ak);
+                        yazilar[2].yaziOlustur(isle,kucukYazi,"Ayarlar",ak);
+                        yazilar[3].yaziOlustur(isle,kucukYazi,"Çık",ak);
+                    }
+                    else if(dil == "English")
+                    {
+                        yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[1]["başlık"],ak);
+                        yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[1]["başla"],ak);
+                        yazilar[2].yaziOlustur(isle,kucukYazi,dilJSON[1]["ayarlar"],ak);
+                        yazilar[3].yaziOlustur(isle,kucukYazi,dilJSON[1]["çık"],ak);
+                    }
+                    else
+                    {
+                        yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[2]["başlık"],ak);
+                        yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[2]["başla"],ak);
+                        yazilar[2].yaziOlustur(isle,kucukYazi,dilJSON[2]["ayarlar"],ak);
+                        yazilar[3].yaziOlustur(isle,kucukYazi,dilJSON[2]["çık"],ak);
+                    }
+                }
+            }
+
         }
         void kapat()
         {
@@ -140,6 +189,18 @@ class ANA_MENU
 
         bool dur = false;
         bool gecilmeDurumu = false;
+        std::ifstream dilDosyasi[3];
+        std::ifstream ayarDos;
+
+        std::string dil;
+
+        json ayarJSON;
+        json dilJSON[3];
+
+        void dilGecisi(void)
+        {
+            return;
+        }
 };
 
 #endif // ANA_MENU_HPP

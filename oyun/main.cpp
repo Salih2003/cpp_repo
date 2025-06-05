@@ -3,6 +3,7 @@ bool cikis = false;
 #include "ALANLAR/ana_menu.hpp"
 #include "ALANLAR/secenekler_menu.hpp"
 #include "ALANLAR/kayit_secim.hpp"
+
 const int EKRAN_GENISLIK = 640;
 const int EKRAN_YUKSEKLIK = 480;
 int8_t tamEkranSayac = 0;
@@ -21,7 +22,7 @@ int main( int argc, char * argv[] )
     sec_menu.tanimlamalar(ayar.isleyiciAl());
     kayit_menu.tanimlamalar(ayar.isleyiciAl());
 
-    Uint32 kareBasla, kareOdu;
+    Uint32 kareBasla, kareÖdü;
     static int frameCount = 0;
     static Uint32 lastTime = 0;
 
@@ -38,6 +39,7 @@ int main( int argc, char * argv[] )
                 sec_menu.kapat();
                 kayit_menu.kapat();
                 cikis = true;
+                goto çıkışYeri;
             }
 
             ///tam ekrana geçiş olayı yakalama
@@ -118,16 +120,19 @@ int main( int argc, char * argv[] )
         if (currentTime - lastTime >= 1000)
         { // Her bir saniyede FPS hesapla
             std::printf("FPS: %d\n", frameCount);
+
             frameCount = 0;
             lastTime = currentTime;
         }
 
-        kareOdu = SDL_GetTicks() - kareBasla;
-        if (KARE_ODU > kareOdu) {
-            SDL_Delay(KARE_ODU - kareOdu);
+        kareÖdü = SDL_GetTicks() - kareBasla;
+        if (KARE_ODU > kareÖdü) {
+            SDL_Delay(KARE_ODU - kareÖdü);
             //std::cout << KARE_ODU - kareOdu << std::endl;
         }
     }
+    çıkışYeri:
+
 
     return 0;
 }

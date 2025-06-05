@@ -2,7 +2,6 @@
 #define SECENEKLER_MENU_HPP
 // 71 30
 #include "alan_basliklar.hpp"
-
 class SECENEKLER_MENU
 {
     public:
@@ -10,7 +9,7 @@ class SECENEKLER_MENU
         ///
         ///
         void tanimlamalar(SDL_Renderer* isleyici)
-        {
+        {this->isleyici = isleyici;
             buyukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",150);
             ortaYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",70);
             kucukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",50);
@@ -19,18 +18,15 @@ class SECENEKLER_MENU
             imlecDoku.konumAl(&imlecX,&imlecY);
             imlecX = 40;
             imlecY = 100;
-            yazilar[0].yaziOlustur(isleyici,ortaYazi,"seçenekler",ak);
-            yazilar[1].yaziOlustur(isleyici,kucukYazi,"Ana Ses",ak);
-            yazilar[2].yaziOlustur(isleyici,kucukYazi,"Ses Efekt",ak);
-            yazilar[3].yaziOlustur(isleyici,kucukYazi,"Dil =",ak);
-            yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
-            yazilar[5].yaziOlustur(isleyici,ortaYazi,"Sıfırla",kizil);
-            yazilar[6].yaziOlustur(isleyici,kucukYazi,"Geri",ak);
+//            yazilar[0].yaziOlustur(isleyici,ortaYazi,"seçenekler",ak);
+//            yazilar[1].yaziOlustur(isleyici,kucukYazi,"Ana Ses",ak);
+//            yazilar[2].yaziOlustur(isleyici,kucukYazi,"Ses Efekt",ak);
+//            yazilar[3].yaziOlustur(isleyici,kucukYazi,"Dil =",ak);
+//            //yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+//            yazilar[5].yaziOlustur(isleyici,ortaYazi,"Sıfırla",kizil);
+//            yazilar[6].yaziOlustur(isleyici,kucukYazi,"Geri",ak);
             ///ses seviye karelerinin boyutlandırılması ve konumlandirilmasi baslangici
-            int ww = 9, ww2 = 9;
-            int hh = -10, hh2 = -10;
-            int xx = 230, yy = 123;
-            int xx2 = 265, yy2 = 165;
+
             for(int i=0; i<=7; i++)
             {
                 if(i <= 3)
@@ -54,21 +50,44 @@ class SECENEKLER_MENU
             }
             ///ses seviye karelerinin boyutlandırılması ve konumlandirilmasi sonu
 
-            kayit_dos.open("DOSYALAR/ayarlar.txt",std::ios::in | std::ios::out);
-            if(!kayit_dos.is_open())
+            kayit_dos1.open("DOSYALAR/ayarlar.json");
+            if(!kayit_dos1.is_open())
             {
-                std::cerr << "DOSYA AÇILAMADI" << std::endl;
+                std::cerr << "DOSYA OKUNAMIYOR" << std::endl;
             }
             else
             {// 0 48 1 49 2 50 3 51 4 52
-                std::string a;
-                kayit_dos.seekg(0);
-                std::getline(kayit_dos,a);
-                std::string b = a.substr(0,1), c = a.substr(2,1);
-                sesDuzeyiSirasi[0] = std::stoi(b);
-                sesDuzeyiSirasi[1] = std::stoi(c);
-                std::cout << (int)sesDuzeyiSirasi[0] << " " << (int)sesDuzeyiSirasi[1] << std::endl;
+                kayit_dos1.seekg(0,std::ios::end);
+                if(kayit_dos1.tellg() == 0)
+                {
+                    kayit_dos1.seekg(0,std::ios::beg);
+                    std::cout << "Boş dosya!! Şimdi doldurulacak\n";
+                    std::string a = R"({"ses1": 4, "ses2": 4, "dil": "Türkçe"})";
+                    kayitJSON = json::parse(a);
+                    sesDuzeyiSirasi[0] = kayitJSON["ses1"];
+                    sesDuzeyiSirasi[1] = kayitJSON["ses2"];
+                    dilSecenegi = kayitJSON["dil"];
+                    yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                }
+                else
+                {
+                    kayit_dos1.seekg(0,std::ios::beg);
+                    kayit_dos1 >> kayitJSON;
+                    sesDuzeyiSirasi[0] = kayitJSON["ses1"];
+                    sesDuzeyiSirasi[1] = kayitJSON["ses2"];
+                    dilSecenegi = kayitJSON["dil"];
+                    yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                }
+//                kayit_dos.open("DOSYALAR/ayarlar.json",std::ios::binary);
+//                if(!kayit_dos.is_open())
+//                    std::cerr << "DOSYA OKUNAMIYOR" << std::endl;
             }
+            dil_dos[0].open("DOSYALAR/turkce.json");
+            dil_dos[0] >> dilDosyalari_1;
+            dil_dos[1].open("DOSYALAR/english.json");
+            dil_dos[1] >> dilDosyalari_2;
+            dil_dos[2].open("DOSYALAR/custom.json");
+            dil_dos[2] >> dilDosyalari_3;
         }
         ///
         ///
@@ -140,7 +159,7 @@ class SECENEKLER_MENU
             yazilar[1].ciz(isleyici,90,90);
             yazilar[2].ciz(isleyici,90,132);
             yazilar[3].ciz(isleyici,90,174);
-            yazilar[4].ciz(isleyici,200,174);
+            yazilar[4].ciz(isleyici,260,174);//200
             yazilar[5].ciz(isleyici,90,210);
             yazilar[6].ciz(isleyici,284,430);
             imlecDoku.ciz(isleyici,imlecX,imlecY,35,35);
@@ -213,14 +232,12 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[0]++;
-                                    //kayit_dos.seekp(0);
-                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[0]);
                                 }
                             }
                         }
                     }
 
-                    if(imlecSirasi == 2)
+                    else if(imlecSirasi == 2)
                     {
                         if(tusBirakilmaDurumu)
                         {
@@ -234,11 +251,32 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[1]++;
-                                    //kayit_dos.seekp(24);
-                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[1]);
                                 }
                             }
                         }
+                    }
+
+                    else if(imlecSirasi == 3)
+                    {
+                        if(tusBirakilmaDurumu)
+                        {// Türkçe, ingilizce, özel dil......
+                            tusBirakilmaDurumu = false;
+                            if(dilSecenegi == "Türkçe")
+                            {
+                                dilSecenegi = "English";
+                            }
+                            else if(dilSecenegi == "English")
+                            {
+                                dilSecenegi = "Custom";
+                            }
+                            else
+                            {
+                                dilSecenegi = "Türkçe";
+                            }
+                            yazilar[4].kapat();
+                            yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                        }
+                        std::cout << dilSecenegi << endl;
                     }
                 }
                 if(olay->key.keysym.sym == SDLK_LEFT)
@@ -257,8 +295,6 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[0]--;
-                                    //kayit_dos.seekp(0);
-                                    //kayit_dos << std::to_string(sesDuzeyiSirasi[0]);
                                 }
                             }
                         }
@@ -278,8 +314,6 @@ class SECENEKLER_MENU
                                 else
                                 {
                                     sesDuzeyiSirasi[1]--;
-                                    //kayit_dos.seekp(24);
-                                    //kayit_dos << std::endl << std::to_string(sesDuzeyiSirasi[1]);
                                 }
                             }
                         }
@@ -317,23 +351,95 @@ class SECENEKLER_MENU
             }
             if(olay->key.keysym.sym == SDLK_z)
             {
-                if(imlecSirasi == 5)
+                if(tusBirakilmaDurumu)
                 {
-                    kayitStr.str("");
-                    kayitStr << std::to_string(static_cast<int> (sesDuzeyiSirasi[0])) << " " << std::to_string(static_cast<int> (sesDuzeyiSirasi[1])) << " " << dilSecenegi;
-                    kayit_dos.seekp(0,std::ios::beg);
-                    kayit_dos << std::flush;
-                    kayit_dos.seekp(0,std::ios::beg);
-                    kayit_dos << kayitStr.str();
-                    kapat();
-                    return 2;
+                    if(imlecSirasi == 5)
+                    {
+                        kayit_dos.open("DOSYALAR/ayarlar.json",std::ios::binary);
+                        if(!kayit_dos.is_open())
+                            std::cerr << "DOSYA OKUNAMIYOR" << std::endl;
+                        kayit_dos.seekp(0,std::ios::beg);
+                        kayit_dos << std::flush;
+                        kayit_dos.seekp(0,std::ios::beg);
+                        kayitJSON["ses1"] = sesDuzeyiSirasi[0];
+                        kayitJSON["ses2"] = sesDuzeyiSirasi[1];
+                        kayitJSON["dil"] = dilSecenegi;
+                        kayit_dos << kayitJSON.dump(4);
+                        kayit_dos.close();
+                        //kapat();
+                        return 2;
+                    }
                 }
-            }
+            }dilDegisikligi();
             return 1;
         }
         ///
         ///
         ///
+        void dilDegisikligi(void)
+        {
+            if(dilSecenegi == "Türkçe" || "Turkce")
+            {
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[4].kapat();
+                yazilar[5].kapat();
+                yazilar[6].kapat();
+
+                yazilar[0].yaziOlustur(isleyici,ortaYazi,dilDosyalari_1["seçenekler"],ak);
+                yazilar[1].yaziOlustur(isleyici,kucukYazi,dilDosyalari_1["ana_ses"],ak);
+                yazilar[2].yaziOlustur(isleyici,kucukYazi,dilDosyalari_1["ses_efekt"],ak);
+                yazilar[3].yaziOlustur(isleyici,kucukYazi,dilDosyalari_1["dil"],ak);
+                yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                yazilar[5].yaziOlustur(isleyici,ortaYazi,dilDosyalari_1["sıfırla"],kizil);
+                yazilar[6].yaziOlustur(isleyici,kucukYazi,dilDosyalari_1["geri"],ak);
+
+
+
+            }
+            if(dilSecenegi == "English")
+            {
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[4].kapat();
+                yazilar[5].kapat();
+                yazilar[6].kapat();
+
+
+
+                yazilar[0].yaziOlustur(isleyici,ortaYazi,dilDosyalari_2["seçenekler"],ak);
+                yazilar[1].yaziOlustur(isleyici,kucukYazi,dilDosyalari_2["ana_ses"],ak);
+                yazilar[2].yaziOlustur(isleyici,kucukYazi,dilDosyalari_2["ses_efekt"],ak);
+                yazilar[3].yaziOlustur(isleyici,kucukYazi,dilDosyalari_2["dil"],ak);
+                yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                yazilar[5].yaziOlustur(isleyici,ortaYazi,dilDosyalari_2["sıfırla"],kizil);
+                yazilar[6].yaziOlustur(isleyici,kucukYazi,dilDosyalari_2["geri"],ak);
+            }
+            if(dilSecenegi == "Custom")
+            {
+
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[4].kapat();
+                yazilar[5].kapat();
+                yazilar[6].kapat();
+
+                yazilar[0].yaziOlustur(isleyici,ortaYazi,dilDosyalari_3["seçenekler"],ak);
+                yazilar[1].yaziOlustur(isleyici,kucukYazi,dilDosyalari_3["ana_ses"],ak);
+                yazilar[2].yaziOlustur(isleyici,kucukYazi,dilDosyalari_3["ses_efekt"],ak);
+                yazilar[3].yaziOlustur(isleyici,kucukYazi,dilDosyalari_3["dil"],ak);
+                yazilar[4].yaziOlustur(isleyici,kucukYazi,dilSecenegi.c_str(),ak);
+                yazilar[5].yaziOlustur(isleyici,ortaYazi,dilDosyalari_3["sıfırla"],kizil);
+                yazilar[6].yaziOlustur(isleyici,kucukYazi,dilDosyalari_3["geri"],ak);
+            }
+            return;
+        }
     private:
         Yazi yazilar[7];
         Doku imlecDoku;
@@ -345,18 +451,31 @@ class SECENEKLER_MENU
         SDL_Color kizil = {0xFF,0x00,0x00,0xFF};
 
         SDL_Rect sesSeviyesi[8];
+        SDL_Renderer *isleyici = nullptr;
 
         const int EKRAN_GENISLIK1 = 640;
         const int EKRAN_YUKSEKLIK1 = 480;
         bool gecilmeDurumu = true;
         bool tusBirakilmaDurumu = true;
-        std::string dilSecenegi = "Turkçe";
-        std::stringstream kayitStr;
+        std::string dilSecenegi = "Türkçe";
         int imlecX, imlecY;
+        json dilDosyalari_1;
+        json dilDosyalari_2;
+        json dilDosyalari_3;
+
+        json kayitJSON;
+
+        int ww = 9, ww2 = 9;
+        int hh = -10, hh2 = -10;
+        int xx = 270, yy = 123;//xx 230 xx2 265
+        int xx2 = 315, yy2 = 165;
+
         public:
         int8_t imlecSirasi = 1, sesDuzeyiSirasi[2] = {4,4};
 
-        std::fstream kayit_dos;
+        std::ofstream kayit_dos;
+        std::ifstream kayit_dos1;
+        std::ifstream dil_dos[3];
 };
 
 #endif // SECENEKLER_MENU_HPP

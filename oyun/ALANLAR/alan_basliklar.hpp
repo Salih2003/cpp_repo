@@ -9,4 +9,8 @@
 #include <fstream>
 #include <sstream>
 
+#include <nlohmann/json.hpp>
+
+using namespace nlohmann;
+
 #endif // ALAN_BASLIKLAR_HPP

@@ -31,13 +31,15 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Os" />
 			<Add option="-Wall" />
-			<Add option="-std=c++17" />
-			<Add option="-std=c17" />
+			<Add option="-std=c++23" />
+			<Add option="-std=c23" />
 			<Add option="-m64" />
 			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/include" />
 			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/include" />
 			<Add directory="C:/betiklik/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include" />
+			<Add directory="C:/Program Files/CodeBlocks/MinGW/include/json_lib" />
 		</Compiler>
 		<Linker>
 			<Add option="-static-libstdc++" />
@@ -54,7 +56,7 @@
 			<Add library="C:/Program Files/CodeBlocks/MinGW/lib/libbox2d.a" />
 			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/lib" />
 			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/lib" />
-			<Add directory="C:/betiklik/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib" />
+			<Add directory="C:/betiklik/SDL_TTF/lib" />
 		</Linker>
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
@@ -73,6 +75,9 @@
 		<Unit filename="src/genelAyar.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+			</wxsmith>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

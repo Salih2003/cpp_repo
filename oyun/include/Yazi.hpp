@@ -7,9 +7,11 @@ class Yazi
 {
     public:
         bool yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,const char* yazi,SDL_Color renk);
+        bool yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,std::string yazi,SDL_Color renk);
         ~Yazi();
         void ciz(SDL_Renderer* isleyici,int x, int y);
         void renkMod(Uint8 r, Uint8 g, Uint8 b);
+        void kapat(void);
     protected:
 
     private:
