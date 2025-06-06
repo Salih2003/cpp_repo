@@ -8,7 +8,7 @@ class ANA_MENU
     public:
         void tanimlamalar(SDL_Renderer* isle)
         {
-            zaman.Reset();
+            zaman.Reset();this->isle = isle;
             buyukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",150);
             ortaYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",110);
             kucukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",50);
@@ -84,6 +84,8 @@ class ANA_MENU
         }
         void gecilmeDurumunuAyarla(bool aktif)
         {
+            if(!aktif)
+                dilGecisi();
             gecilmeDurumu = aktif;
             return;
         }
@@ -173,6 +175,9 @@ class ANA_MENU
     private:
         Yazi yazilar[5];
         SDL_Rect belirtmeKare;//basla cık tan hangisi old. kullanıcıya gosterir.
+
+        SDL_Renderer* isle = nullptr;
+
         const int EKRAN_GENISLIK1 = 640;
         const int EKRAN_YUKSEKLIK1 = 480;
 
@@ -199,6 +204,43 @@ class ANA_MENU
 
         void dilGecisi(void)
         {
+            ayarJSON.clear();
+            ayarDos.seekg(0,std::ios::beg);
+            ayarDos >> ayarJSON;
+            dil = ayarJSON["dil"];
+            if(dil == "Türkçe")
+            {
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[0]["başlık"],ak);
+                yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[0]["başla"],ak);
+                yazilar[2].yaziOlustur(isle,kucukYazi,"Ayarlar",ak);
+                yazilar[3].yaziOlustur(isle,kucukYazi,"Çık",ak);
+            }
+            else if(dil == "English")
+            {
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[1]["başlık"],ak);
+                yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[1]["başla"],ak);
+                yazilar[2].yaziOlustur(isle,kucukYazi,dilJSON[1]["ayarlar"],ak);
+                yazilar[3].yaziOlustur(isle,kucukYazi,dilJSON[1]["çık"],ak);
+            }
+            else
+            {
+                yazilar[0].kapat();
+                yazilar[1].kapat();
+                yazilar[2].kapat();
+                yazilar[3].kapat();
+                yazilar[0].yaziOlustur(isle,buyukYazi,dilJSON[2]["başlık"],ak);
+                yazilar[1].yaziOlustur(isle,kucukYazi,dilJSON[2]["başla"],ak);
+                yazilar[2].yaziOlustur(isle,kucukYazi,dilJSON[2]["ayarlar"],ak);
+                yazilar[3].yaziOlustur(isle,kucukYazi,dilJSON[2]["çık"],ak);
+            }
             return;
         }
 };
