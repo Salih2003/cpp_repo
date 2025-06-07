@@ -7,12 +7,12 @@ bool Yazi::yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,const char* yazi,SD
     SDL_Surface* olusanYuzey = TTF_RenderUTF8_Solid(font,yazi,renk);
     if(olusanYuzey == nullptr)
     {
-        std::cerr << "Yüzey sýkýntýlý HATA: " << TTF_GetError() << std::endl;
+        std::cerr << "YÃ¼zey sÄ±kÄ±ntÄ±lÄ± HATA: " << TTF_GetError() << std::endl;
     }
     SDL_Texture* yeniDoku = SDL_CreateTextureFromSurface(isleyici,olusanYuzey);
     if(yeniDoku == nullptr)
     {
-        std::cerr << "Yazý oluþmadý HATA: " << TTF_GetError() << std::endl;
+        std::cerr << "YazÄ± oluÅŸmadÄ± HATA: " << TTF_GetError() << std::endl;
         basarili = false;
     }
     w = olusanYuzey->w;
@@ -32,12 +32,12 @@ bool Yazi::yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,std::string yazi,SD
     SDL_Surface* olusanYuzey = TTF_RenderUTF8_Solid(font,yazi.c_str(),renk);
     if(olusanYuzey == nullptr)
     {
-        std::cerr << "Yüzey sýkýntýlý HATA: " << TTF_GetError() << std::endl;
+        std::cerr << "YÃ¼zey sÄ±kÄ±ntÄ±lÄ± HATA: " << TTF_GetError() << std::endl;
     }
     SDL_Texture* yeniDoku = SDL_CreateTextureFromSurface(isleyici,olusanYuzey);
     if(yeniDoku == nullptr)
     {
-        std::cerr << "Yazý oluþmadý HATA: " << TTF_GetError() << std::endl;
+        std::cerr << "YazÄ± oluÅŸmadÄ± HATA: " << TTF_GetError() << std::endl;
         basarili = false;
     }
     w = olusanYuzey->w;

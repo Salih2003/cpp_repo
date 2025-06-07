@@ -4,26 +4,26 @@ bool genelAyar::giris(string ad, int genislik, int yukseklik)
 {
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        cerr << "SDL VIDEO altyapýsý çalýþmadý HATA: " << SDL_GetError() << endl;
+        cerr << "SDL VIDEO altyapÄ±sÄ± Ã§alÄ±ÅŸmadÄ± HATA: " << SDL_GetError() << endl;
         basarili = false;
     }
     else
     {
         if(IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
         {
-            cerr << "IMG PNG baþarýsýz HATA: " << IMG_GetError() << endl;
+            cerr << "IMG PNG baÅŸarÄ±sÄ±z HATA: " << IMG_GetError() << endl;
             basarili = false;
         }
         else
         {
             TTF_Init();
-            cout << "Alt yapýlar hazýr!!!!!!!!!!!!!!!!!!!" << endl;
+            cout << "Alt yapÄ±lar hazÄ±r!!!!!!!!!!!!!!!!!!!" << endl;
             EKRAN_GENISLIK = genislik;
             EKRAN_YUKSEKLIK = yukseklik;
             pencere = SDL_CreateWindow(ad.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,EKRAN_GENISLIK,EKRAN_YUKSEKLIK,SDL_WINDOW_SHOWN);
             if(pencere == nullptr)
             {
-                cerr << "Pencere oluþumu baþarýsýz HATA: " << SDL_GetError() << endl;
+                cerr << "Pencere oluÅŸumu baÅŸarÄ±sÄ±z HATA: " << SDL_GetError() << endl;
                 basarili = false;
             }
             else
@@ -31,12 +31,12 @@ bool genelAyar::giris(string ad, int genislik, int yukseklik)
                 gorsellestirici = SDL_CreateRenderer(pencere,-1,SDL_RENDERER_ACCELERATED);
                 if(gorsellestirici == nullptr)
                 {
-                    cerr << "Ýþleyici çalýþmaz HATA: " << SDL_GetError() << endl;
+                    cerr << "Ä°ÅŸleyici Ã§alÄ±ÅŸmaz HATA: " << SDL_GetError() << endl;
                     basarili = false;
                 }
                 else
                 {
-                    cout << "Pencere kullanýma hazýr!!!!!!!!!!!" << endl;
+                    cout << "Pencere kullanÄ±ma hazÄ±r!!!!!!!!!!!" << endl;
 
                 }
             }

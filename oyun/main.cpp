@@ -4,6 +4,50 @@ bool cikis = false;
 #include "ALANLAR/secenekler_menu.hpp"
 #include "ALANLAR/kayit_secim.hpp"
 
+#include <streambuf>
+#include <string>
+
+
+
+class SDLLogStreamBuf : public std::streambuf {
+public:
+    SDLLogStreamBuf(SDL_LogPriority priority = SDL_LOG_PRIORITY_INFO)
+        : logPriority(priority) {}
+
+protected:
+    int overflow(int ch) override {
+        if (ch == EOF)
+            return ch;
+
+        char c = static_cast<char>(ch);
+        buffer += c;
+
+        if (c == '\n') {
+            flushBuffer();
+        }
+
+        return ch;
+    }
+
+    int sync() override {
+        flushBuffer();
+        return 0;
+    }
+
+private:
+    std::string buffer;
+    SDL_LogPriority logPriority;
+
+    void flushBuffer() {
+        if (!buffer.empty()) {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, logPriority, "%s", buffer.c_str());
+            buffer.clear();
+        }
+    }
+};
+
+
+
 const int EKRAN_GENISLIK = 640;
 const int EKRAN_YUKSEKLIK = 480;
 int8_t tamEkranSayac = 0;
@@ -12,10 +56,18 @@ genelAyar ayar;
 ANA_MENU ana_menu;
 SECENEKLER_MENU sec_menu;
 KAYIT_SECIM kayit_menu;
+
 int main( int argc, char * argv[] )
 {
 
     setlocale(LC_ALL, "Turkish");
+
+SDLLogStreamBuf coutBuf(SDL_LOG_PRIORITY_INFO);
+SDLLogStreamBuf cerrBuf(SDL_LOG_PRIORITY_ERROR);
+
+// Yedekler
+auto* oldCoutBuf = std::cout.rdbuf(&coutBuf);
+auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
 
     ayar.giris("DENEME, PROJESİ",EKRAN_GENISLIK,EKRAN_YUKSEKLIK);
     ana_menu.tanimlamalar(ayar.isleyiciAl());
@@ -133,6 +185,7 @@ int main( int argc, char * argv[] )
     }
     çıkışYeri:
 
-
+    std::cout.rdbuf(oldCoutBuf);
+    std::cerr.rdbuf(oldCerrBuf);
     return 0;
 }

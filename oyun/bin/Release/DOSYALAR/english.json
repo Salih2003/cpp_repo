@@ -8,5 +8,10 @@
     "ses_efekt": "Sound Effect",
     "dil": "Language=",
     "sıfırla": "Reset",
-    "geri": "Back"
+    "geri": "Back",
+    "oda_adı": "ROOM",
+    "devam": "Continue",
+    "sil": "Delete",
+    "yeni": "New",
+    "GERİ": "BACK"
 }
