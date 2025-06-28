@@ -12,10 +12,12 @@ class Yazi
         void ciz(SDL_Renderer* isleyici,int x, int y);
         void renkMod(Uint8 r, Uint8 g, Uint8 b);
         void kapat(void);
+        void fontBoyutuAyarla(int nkSayısı){TTF_SetFontSize(font,nkSayısı);return;}
     protected:
 
     private:
         SDL_Texture* doku;
+        TTF_Font *font;
         int x,y,w,h;
         bool basarili = true;
 };

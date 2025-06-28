@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1749289349 source:c:\c_proj\oyun\main.cpp
+1750932003 source:c:\c_proj\oyun\main.cpp
 	<locale.h>
 	"ALANLAR/ana_menu.hpp"
 	"ALANLAR/secenekler_menu.hpp"
@@ -400,10 +400,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1749289540 source:c:\c_proj\oyun\src\genelayar.cpp
+1750945651 source:c:\c_proj\oyun\src\genelayar.cpp
 	"genelAyar.hpp"
 
-1708272376 c:\c_proj\oyun\include\genelayar.hpp
+1750931964 c:\c_proj\oyun\include\genelayar.hpp
 	"basliklar.hpp"
 
 1707656874 c:\betiklik\sdl2_image-2.8.2\x86_64-w64-mingw32\include\sdl2\sdl_image.h
@@ -412,7 +412,7 @@
 	"SDL2/begin_code.h"
 	"SDL2/close_code.h"
 
-1711804788 c:\c_proj\oyun\include\basliklar.hpp
+1750775768 c:\c_proj\oyun\include\basliklar.hpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<SDL2/SDL_ttf.h>
@@ -430,13 +430,13 @@
 	"SDL2/begin_code.h"
 	"SDL2/close_code.h"
 
-1749289580 source:c:\c_proj\oyun\src\yazi.cpp
+1751026442 source:c:\c_proj\oyun\src\yazi.cpp
 	"Yazi.hpp"
 
-1747736600 c:\c_proj\oyun\include\yazi.hpp
+1751026598 c:\c_proj\oyun\include\yazi.hpp
 	"basliklar.hpp"
 
-1749210330 c:\c_proj\oyun\alanlar\ana_menu.hpp
+1749562611 c:\c_proj\oyun\alanlar\ana_menu.hpp
 	"alan_basliklar.hpp"
 
 1727448899 c:\c_proj\oyun\alanlar\alan_basliklar.hpp
@@ -451,7 +451,7 @@
 1749142870 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
 	"alan_basliklar.hpp"
 
-1749292096 c:\c_proj\oyun\alanlar\kayit_secim.hpp
+1751111107 c:\c_proj\oyun\alanlar\kayit_secim.hpp
 	"alan_basliklar.hpp"
 
 1727438199 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\json.hpp

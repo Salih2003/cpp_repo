@@ -9,5 +9,16 @@
 
 #include <iostream>
 
+struct pencereBilgi
+{
+    int temelPencereYükseklik;
+    int temelPencereGenişlik;
+    int ekranYüksekliği;
+    int ekranGenişliği;
+    double pencereEkranYükseklikOranı;
+    double pencereEkranGenişlikOranı;
+    Uint32 ekranBayrağı;
+};
+
 #endif // BASLIKLAR_HPP
 

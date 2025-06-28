@@ -51,6 +51,7 @@ private:
 const int EKRAN_GENISLIK = 640;
 const int EKRAN_YUKSEKLIK = 480;
 int8_t tamEkranSayac = 0;
+Uint32 fps;
 #define KARE_ODU 1000 / 60
 genelAyar ayar;
 ANA_MENU ana_menu;
@@ -72,7 +73,7 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
     ayar.giris("DENEME, PROJESİ",EKRAN_GENISLIK,EKRAN_YUKSEKLIK);
     ana_menu.tanimlamalar(ayar.isleyiciAl());
     sec_menu.tanimlamalar(ayar.isleyiciAl());
-    kayit_menu.tanimlamalar(ayar.isleyiciAl());
+    kayit_menu.tanimlamalar(ayar.isleyiciAl(),&ayar.pencereBilgisi);
 
     Uint32 kareBasla, kareÖdü;
     static int frameCount = 0;
@@ -169,7 +170,8 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
 
         frameCount++;
         Uint32 currentTime = SDL_GetTicks();
-        if (currentTime - lastTime >= 1000)
+        fps = currentTime - lastTime;
+        if (fps >= 1000)
         { // Her bir saniyede FPS hesapla
             std::printf("FPS: %d\n", frameCount);
 
@@ -180,7 +182,7 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
         kareÖdü = SDL_GetTicks() - kareBasla;
         if (KARE_ODU > kareÖdü) {
             SDL_Delay(KARE_ODU - kareÖdü);
-            //std::cout << KARE_ODU - kareOdu << std::endl;
+            //std::cout << KARE_ODU - kareÖdü << std::endl;
         }
     }
     çıkışYeri:

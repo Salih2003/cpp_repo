@@ -6,13 +6,11 @@
 class KAYIT_SECIM
 {
     public:
-    void tanimlamalar(SDL_Renderer* isleyici)
+    void tanimlamalar(SDL_Renderer* isleyici,const pencereBilgi *pencereBilgisi)
     {
-        this->isleyici = isleyici;
-        kayit_kareleri[0] = {640/4,480/6 - 25,300,100};
-        kayit_kareleri[1] = {kayit_kareleri[0].x,kayit_kareleri[0].y + 110,300,100};
-        kayit_kareleri[2] = {kayit_kareleri[0].x,kayit_kareleri[1].y + 110,300,100};
-
+        this->isleyici = isleyici;//std::cout << mod->w << " " << mod->h << std::endl;
+        //kullanılanEkranModu = mod;
+        PencereninBilgisi = pencereBilgisi;
         fontt[0] = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",50);
         fontt[1] = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",20);
         fontt[2] = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",33);
@@ -107,6 +105,9 @@ class KAYIT_SECIM
 
             yazilar[GERI].yaziOlustur(this->isleyici,fontt[2],dilJSON[2]["GERİ"],ak);
         }
+        yanSıra[0] = 1;
+        yanSıra[1] = 1;
+        yanSıra[2] = 1;
 
     }
     void ciz(void)
@@ -114,6 +115,26 @@ class KAYIT_SECIM
         if(sira == 1)
         {
             SDL_SetRenderDrawColor(isleyici,0x00,0xFF,0xFF,0xFF);
+            switch(yanSıra[0])
+            {
+                case 1:
+                    yazilar[KAYIT_1_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_1_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_1_YENI].renkMod(0,255,0xFF);
+                    break;
+                case 2:
+                    yazilar[KAYIT_1_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_1_SIL].renkMod(0,255,255);
+                    yazilar[KAYIT_1_YENI].renkMod(255,255,0xFF);
+                    break;
+                case 3:
+                    yazilar[KAYIT_1_DEVAM].renkMod(0,255,255);
+                    yazilar[KAYIT_1_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_1_YENI].renkMod(255,255,0xFF);
+                    break;
+                default:
+                    std::cout << "Hatalı işlem \n";
+            };
         }
         else
         {
@@ -124,6 +145,26 @@ class KAYIT_SECIM
         if(sira == 2)
         {
             SDL_SetRenderDrawColor(isleyici,0x00,0xFF,0xFF,0xFF);
+            switch(yanSıra[1])
+            {
+                case 1:
+                    yazilar[KAYIT_2_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_2_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_2_YENI].renkMod(0,255,0xFF);
+                    break;
+                case 2:
+                    yazilar[KAYIT_2_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_2_SIL].renkMod(0,255,255);
+                    yazilar[KAYIT_2_YENI].renkMod(255,255,0xFF);
+                    break;
+                case 3:
+                    yazilar[KAYIT_2_DEVAM].renkMod(0,255,255);
+                    yazilar[KAYIT_2_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_2_YENI].renkMod(255,255,0xFF);
+                    break;
+                default:
+                    std::cout << "Hatalı işlem \n";
+            };
         }
         else
         {
@@ -134,6 +175,26 @@ class KAYIT_SECIM
         if(sira == 3)
         {
             SDL_SetRenderDrawColor(isleyici,0x00,0xFF,0xFF,0xFF);
+            switch(yanSıra[2])
+            {
+                case 1:
+                    yazilar[KAYIT_3_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_3_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_3_YENI].renkMod(0,255,0xFF);
+                    break;
+                case 2:
+                    yazilar[KAYIT_3_DEVAM].renkMod(255,255,255);
+                    yazilar[KAYIT_3_SIL].renkMod(0,255,255);
+                    yazilar[KAYIT_3_YENI].renkMod(255,255,0xFF);
+                    break;
+                case 3:
+                    yazilar[KAYIT_3_DEVAM].renkMod(0,255,255);
+                    yazilar[KAYIT_3_SIL].renkMod(255,255,255);
+                    yazilar[KAYIT_3_YENI].renkMod(255,255,0xFF);
+                    break;
+                default:
+                    std::cout << "Hatalı işlem \n";
+            };
         }
         else
         {
@@ -150,34 +211,58 @@ class KAYIT_SECIM
             yazilar[GERI].renkMod(0xFF,0xFF,0xFF);
         }
 
-        yazilar[KAYIT_1_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[0].y + 5);
-        yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[0].y + 20);
-        yazilar[KAYIT_1_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[0].y + 80);
-        yazilar[KAYIT_1_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[0].y + 80);
-        yazilar[KAYIT_1_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[0].y + 80);
+        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
+        {
+            yazilar[KAYIT_1_SURE].ciz(isleyici,(kayit_kareleri[0].x + 5), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı* 5));
+            yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,(kayit_kareleri[0].x + 20), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*20));
+            yazilar[KAYIT_1_DEVAM].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w - 55), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+            yazilar[KAYIT_1_SIL].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10),(kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+            yazilar[KAYIT_1_YENI].ciz(isleyici, (kayit_kareleri[0].x + 10), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
 
-        yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + 5);
-        yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + 20);
-        yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + 80);
-        yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + 80);
-        yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + 80);
+            yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
+            yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
+            yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+            yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+            yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
 
-        yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + 5);
-        yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + 20);
-        yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y + 80);
-        yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y + 80);
-        yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + 80);
+            yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
+            yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
+            yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
+            yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
+            yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
 
-        yazilar[GERI].ciz(isleyici,640/2 - 30,480 - 50);
+            yazilar[GERI].ciz(isleyici,PencereninBilgisi->pencereEkranGenişlikOranı*(640/2 - 30),PencereninBilgisi->pencereEkranYükseklikOranı*(480 - 50));
+        }
+
+        else if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
+        {
+            yazilar[KAYIT_1_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[0].y + 5);
+            yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[0].y + 20);
+            yazilar[KAYIT_1_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[0].y + 80);
+            yazilar[KAYIT_1_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[0].y + 80);
+            yazilar[KAYIT_1_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[0].y + 80);
+
+            yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + 5);
+            yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + 20);
+            yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + 80);
+            yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + 80);
+            yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + 80);
+
+            yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + 5);
+            yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + 20);
+            yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y + 80);
+            yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y + 80);
+            yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + 80);
+
+            yazilar[GERI].ciz(isleyici,(640/2 - 30),480 - 50);
+        }
+
     }
 
     void gecilmeDurumuAyarla(bool durum)
     {
         if(!durum)
-        {
             dilDeğişim();
-            std::cout << "dilDeğişimi\n";
-        }
         gecilmeDurumu = durum;
         return;
     }
@@ -209,6 +294,48 @@ class KAYIT_SECIM
                         ++sira;
                 }
                 ///
+                if(olay->key.keysym.sym == SDLK_RIGHT)
+                {
+                    tusaBasildimi = true;
+                    if(sira == 1)
+                    {
+                        if(yanSıra[0] < 3 || yanSıra[0] == 2)
+                            ++yanSıra[0];
+                    }
+
+                    if(sira == 2)
+                    {
+                        if(yanSıra[1] < 3 || yanSıra[1] == 2)
+                            ++yanSıra[1];
+                    }
+
+                    if(sira == 3)
+                    {
+                        if(yanSıra[2] < 3 || yanSıra[2] == 2)
+                            ++yanSıra[2];
+                    }
+                }
+                ///
+                if(olay->key.keysym.sym == SDLK_LEFT)
+                {
+                    tusaBasildimi = true;
+                    if(sira == 1)
+                    {
+                        if(yanSıra[0] > 1 || yanSıra[0] == 2)
+                            --yanSıra[0];
+                    }
+                    if(sira == 2)
+                    {
+                        if(yanSıra[1] > 1 || yanSıra[1] == 2)
+                            --yanSıra[1];
+                    }
+                    if(sira == 3)
+                    {
+                        if(yanSıra[2] > 1 || yanSıra[2] == 2)
+                            --yanSıra[2];
+                    }
+                }
+                ///
             }
                 if(olay->key.keysym.scancode == SDL_SCANCODE_Z)
                 {
@@ -222,6 +349,48 @@ class KAYIT_SECIM
         if(olay->type == SDL_KEYUP)
         {
             tusaBasildimi = false;
+        }
+        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
+        {
+            kayit_kareleri[0] = { (PencereninBilgisi->temelPencereGenişlik / 6)*PencereninBilgisi->pencereEkranGenişlikOranı, PencereninBilgisi->pencereEkranYükseklikOranı*(PencereninBilgisi->temelPencereYükseklik / 5 - 15), PencereninBilgisi->pencereEkranYükseklikOranı*(4*PencereninBilgisi->temelPencereGenişlik/6), 100*PencereninBilgisi->pencereEkranYükseklikOranı };
+            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y+110*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
+            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y+110*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
+            for(int i = 0; i < YAZILAR;i++)
+            {
+                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
+                {
+                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*50);
+                    continue;
+                }
+                if(i==GERI)
+                {
+                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*33);
+                    continue;
+                }
+                yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*20);
+            }
+            dilDeğişim();
+        }
+        else if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
+        {
+            kayit_kareleri[0] = { PencereninBilgisi->temelPencereGenişlik / 6, PencereninBilgisi->temelPencereYükseklik / 5 - 15, 4*PencereninBilgisi->temelPencereGenişlik/6, 100 };
+            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+            for(int i = 0; i < YAZILAR;i++)
+            {
+                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
+                {
+                    yazilar[i].fontBoyutuAyarla(50);
+                    continue;
+                }
+                if(i==GERI)
+                {
+                    yazilar[i].fontBoyutuAyarla(33);
+                    continue;
+                }
+                yazilar[i].fontBoyutuAyarla(20);
+            }
+            dilDeğişim();
         }
         return 1;
     }
@@ -246,15 +415,19 @@ class KAYIT_SECIM
     SDL_Color renk = ak;
 
     SDL_Renderer* isleyici = nullptr;
+    SDL_DisplayMode* kullanılanEkranModu;
 
 //    Yazi yazilar[YAZILAR];
 
     int8_t sira = 1;
+    uint8_t yanSıra[3];
     bool gecilmeDurumu = true;
     std::string dil;
 
     std::ifstream ayarDos, dilDos[3];
     json ayarJSON, dilJSON[3];
+
+    const pencereBilgi *PencereninBilgisi;
 
     private:
 

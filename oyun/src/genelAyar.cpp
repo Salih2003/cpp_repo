@@ -1,6 +1,6 @@
 #include "genelAyar.hpp"
 
-bool genelAyar::giris(string ad, int genislik, int yukseklik)
+bool genelAyar::giris(string ad, int genislik = 640, int yukseklik = 480)
 {
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
@@ -42,6 +42,16 @@ bool genelAyar::giris(string ad, int genislik, int yukseklik)
             }
         }
     }
+    SDL_GetCurrentDisplayMode(0,&mod);
+    pencereBilgisi.ekranGenişliği = mod.w;
+    pencereBilgisi.ekranYüksekliği = mod.h;
+    pencereBilgisi.temelPencereGenişlik = EKRAN_GENISLIK;
+    pencereBilgisi.temelPencereYükseklik = EKRAN_YUKSEKLIK;
+    pencereBilgisi.pencereEkranGenişlikOranı = pencereBilgisi.ekranGenişliği / pencereBilgisi.temelPencereGenişlik;
+    pencereBilgisi.pencereEkranYükseklikOranı = pencereBilgisi.ekranYüksekliği / pencereBilgisi.temelPencereYükseklik;
+    pencereBilgisi.ekranBayrağı = SDL_GetWindowFlags(pencere);
+    mod.w = EKRAN_GENISLIK;
+    mod.h = EKRAN_YUKSEKLIK;
     return basarili;
 }
 
@@ -77,10 +87,15 @@ void genelAyar::ekranTemizle()
 
 void genelAyar::ekranYenile()
 {
-    SDL_RenderPresent(gorsellestirici);
+    SDL_RenderPresent(gorsellestirici);pencereBilgisi.ekranBayrağı = SDL_GetWindowFlags(pencere);
 }
 
 void genelAyar::ekranRengiAyarla(Uint8 r, Uint8 g, Uint8 b)
 {
     SDL_SetRenderDrawColor(gorsellestirici,r,g,b,0xFF);
+}
+
+SDL_DisplayMode *genelAyar::ekranModuAl()
+{
+    return &mod;
 }

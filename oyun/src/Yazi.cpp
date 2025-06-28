@@ -4,6 +4,7 @@ bool Yazi::yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,const char* yazi,SD
 {
     SDL_DestroyTexture(doku);
     doku = nullptr;
+    this->font = font;
     SDL_Surface* olusanYuzey = TTF_RenderUTF8_Solid(font,yazi,renk);
     if(olusanYuzey == nullptr)
     {
@@ -29,6 +30,7 @@ bool Yazi::yaziOlustur(SDL_Renderer* isleyici,TTF_Font* font,std::string yazi,SD
 {
     SDL_DestroyTexture(doku);
     doku = nullptr;
+    this->font = font;
     SDL_Surface* olusanYuzey = TTF_RenderUTF8_Solid(font,yazi.c_str(),renk);
     if(olusanYuzey == nullptr)
     {

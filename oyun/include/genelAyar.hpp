@@ -17,12 +17,23 @@ class genelAyar
         ~genelAyar();
         void tamEkran(int karar)
         {
+            SDL_GetCurrentDisplayMode(0,&mod);
             if(karar == 1)
+            {
+                SDL_SetWindowSize(pencere,mod.w,mod.h);
                 SDL_SetWindowFullscreen(pencere,SDL_WINDOW_FULLSCREEN);
+            }
             if(karar == 0)
+            {
+                SDL_SetWindowSize(pencere,EKRAN_GENISLIK,EKRAN_YUKSEKLIK);
                 SDL_SetWindowFullscreen(pencere,SDL_WINDOW_SHOWN);
+                mod.w = EKRAN_GENISLIK;
+                mod.h = EKRAN_YUKSEKLIK;
+            }
         }
-
+        SDL_DisplayMode *ekranModuAl();
+        //pencereBilgi *pencBilgiDöndür(){return *pencereBilgisi;};
+        pencereBilgi pencereBilgisi;
     protected:
 
     private:
@@ -30,6 +41,7 @@ class genelAyar
         SDL_Renderer* gorsellestirici = nullptr;
         int EKRAN_YUKSEKLIK = 640, EKRAN_GENISLIK = 480;
         bool basarili = true;
+        SDL_DisplayMode mod;
 };
 
 

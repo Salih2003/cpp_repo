@@ -86,6 +86,10 @@ class ANA_MENU
         {
             if(!aktif)
                 dilGecisi();
+            else
+            {
+                zaman.Reset();
+            }
             gecilmeDurumu = aktif;
             return;
         }
@@ -106,49 +110,59 @@ class ANA_MENU
             const Uint8* klavyeDurum = SDL_GetKeyboardState(NULL);
             if(klavyeDurum[SDL_SCANCODE_UP])
             {
-                if(sayac > 0 && sayac <= 2)
+                if(özelSayaç < 1)
                 {
-                    if(dur == false)
-                    {
-                        belirtmeKare.y = belirtmeKare.y - 40;
-                        dur = true;
-                        sayac--;
-                    }
+                        if(sayac > 0 && sayac <= 2)
+                        {
+                                belirtmeKare.y = belirtmeKare.y - 40;
+                                sayac--;
+                                özelSayaç++;
+                        }
                 }
-            }
-            if(zaman.GetMilliseconds() > 350.00F)
+            if(özelSayaç > 0 && zaman.GetMilliseconds() >= 250.00F)//>350
             {
                 zaman.Reset();
-                dur = false;
+                özelSayaç--;
+            }
             }
             if(klavyeDurum[SDL_SCANCODE_DOWN])
             {
-                if(sayac >= 0 && sayac < 2)
+                if(özelSayaç < 1)
                 {
-                    if(dur == false)
+                    if(sayac >= 0 && sayac < 2)
                     {
-                        belirtmeKare.y = belirtmeKare.y + 40;
-                        dur = true;
-                        sayac++;
+                            belirtmeKare.y = belirtmeKare.y + 40;
+                            sayac++;
+                            ++özelSayaç;
                     }
                 }
+            if(özelSayaç > 0 && zaman.GetMilliseconds() >= 250.00F)//>350
+            {
+                zaman.Reset();
+                özelSayaç--;
             }
+            }
+//            if(özelSayaç > 0 && zaman.GetMilliseconds() >= 250.00F)//>350
+//            {
+//                zaman.Reset();
+//                özelSayaç--;
+//            }
             //secim oldumu baslangic
             if(klavyeDurum[SDL_SCANCODE_Z])
             {
                 if(sayac == 0)
                 {
-                    gecilmeDurumu = true;
+                    gecilmeDurumunuAyarla(true);
                     return 0;
                 }
                 if(sayac == 1)
                 {
-                    gecilmeDurumu = true;
+                    gecilmeDurumunuAyarla(true);
                     return 1;
                 }
                 if(sayac == 2)
                 {
-                    gecilmeDurumu = true;
+                    gecilmeDurumunuAyarla(true);
                     kapat();
                     return 2;
                 }
@@ -182,6 +196,7 @@ class ANA_MENU
         const int EKRAN_YUKSEKLIK1 = 480;
 
         int8_t sayac = 0;//ana menu secenklerden hangisinde oldugunu gosterir.
+        int özelSayaç = 1;
 
         TTF_Font* buyukYazi;
         TTF_Font* ortaYazi;
@@ -192,7 +207,6 @@ class ANA_MENU
 
         b2Timer zaman;//secenekler arası gecis suresi icin.
 
-        bool dur = false;
         bool gecilmeDurumu = false;
         std::ifstream dilDosyasi[3];
         std::ifstream ayarDos;
