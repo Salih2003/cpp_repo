@@ -20,7 +20,7 @@ bool genelAyar::giris(string ad, int genislik = 640, int yukseklik = 480)
             cout << "Alt yapılar hazır!!!!!!!!!!!!!!!!!!!" << endl;
             EKRAN_GENISLIK = genislik;
             EKRAN_YUKSEKLIK = yukseklik;
-            pencere = SDL_CreateWindow(ad.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,EKRAN_GENISLIK,EKRAN_YUKSEKLIK,SDL_WINDOW_SHOWN);
+            pencere = SDL_CreateWindow(ad.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,EKRAN_GENISLIK,EKRAN_YUKSEKLIK,SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
             if(pencere == nullptr)
             {
                 cerr << "Pencere oluşumu başarısız HATA: " << SDL_GetError() << endl;
@@ -42,16 +42,17 @@ bool genelAyar::giris(string ad, int genislik = 640, int yukseklik = 480)
             }
         }
     }
-    SDL_GetCurrentDisplayMode(0,&mod);
-    pencereBilgisi.ekranGenişliği = mod.w;
-    pencereBilgisi.ekranYüksekliği = mod.h;
+SDL_RenderSetLogicalSize(gorsellestirici,640,480);
+//    SDL_GetCurrentDisplayMode(0,&mod);
+//    pencereBilgisi.ekranGenişliği = mod.w;
+//    pencereBilgisi.ekranYüksekliği = mod.h;
     pencereBilgisi.temelPencereGenişlik = EKRAN_GENISLIK;
     pencereBilgisi.temelPencereYükseklik = EKRAN_YUKSEKLIK;
-    pencereBilgisi.pencereEkranGenişlikOranı = pencereBilgisi.ekranGenişliği / pencereBilgisi.temelPencereGenişlik;
-    pencereBilgisi.pencereEkranYükseklikOranı = pencereBilgisi.ekranYüksekliği / pencereBilgisi.temelPencereYükseklik;
+//    pencereBilgisi.pencereEkranGenişlikOranı = (double)pencereBilgisi.ekranGenişliği / pencereBilgisi.temelPencereGenişlik;
+//    pencereBilgisi.pencereEkranYükseklikOranı = (double)pencereBilgisi.ekranYüksekliği / pencereBilgisi.temelPencereYükseklik;
     pencereBilgisi.ekranBayrağı = SDL_GetWindowFlags(pencere);
-    mod.w = EKRAN_GENISLIK;
-    mod.h = EKRAN_YUKSEKLIK;
+//    mod.w = EKRAN_GENISLIK;
+//    mod.h = EKRAN_YUKSEKLIK;
     return basarili;
 }
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1750932003 source:c:\c_proj\oyun\main.cpp
+1751212736 source:c:\c_proj\oyun\main.cpp
 	<locale.h>
 	"ALANLAR/ana_menu.hpp"
 	"ALANLAR/secenekler_menu.hpp"
@@ -400,7 +400,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1750945651 source:c:\c_proj\oyun\src\genelayar.cpp
+1751212881 source:c:\c_proj\oyun\src\genelayar.cpp
 	"genelAyar.hpp"
 
 1750931964 c:\c_proj\oyun\include\genelayar.hpp
@@ -451,7 +451,7 @@
 1749142870 c:\c_proj\oyun\alanlar\secenekler_menu.hpp
 	"alan_basliklar.hpp"
 
-1751111107 c:\c_proj\oyun\alanlar\kayit_secim.hpp
+1751213869 c:\c_proj\oyun\alanlar\kayit_secim.hpp
 	"alan_basliklar.hpp"
 
 1727438199 c:\program files\codeblocks\mingw\include\json_lib\nlohmann\json.hpp

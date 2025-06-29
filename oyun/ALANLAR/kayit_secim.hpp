@@ -15,6 +15,10 @@ class KAYIT_SECIM
         fontt[1] = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",20);
         fontt[2] = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",33);
 
+        kayit_kareleri[0] = { PencereninBilgisi->temelPencereGenişlik / 6, PencereninBilgisi->temelPencereYükseklik / 5 - 15, 4*PencereninBilgisi->temelPencereGenişlik/6, 100 };
+        kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+        kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+
         ayarDos.open("DOSYALAR/ayarlar.json");
         if(!ayarDos.is_open())
         {
@@ -211,31 +215,31 @@ class KAYIT_SECIM
             yazilar[GERI].renkMod(0xFF,0xFF,0xFF);
         }
 
-        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
-        {
-            yazilar[KAYIT_1_SURE].ciz(isleyici,(kayit_kareleri[0].x + 5), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı* 5));
-            yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,(kayit_kareleri[0].x + 20), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*20));
-            yazilar[KAYIT_1_DEVAM].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w - 55), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
-            yazilar[KAYIT_1_SIL].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10),(kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
-            yazilar[KAYIT_1_YENI].ciz(isleyici, (kayit_kareleri[0].x + 10), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+//        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
+//        {
+//            yazilar[KAYIT_1_SURE].ciz(isleyici,(kayit_kareleri[0].x + 5), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı* 5));
+//            yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,(kayit_kareleri[0].x + 20), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*20));
+//            yazilar[KAYIT_1_DEVAM].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w - 55), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+//            yazilar[KAYIT_1_SIL].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10),(kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+//            yazilar[KAYIT_1_YENI].ciz(isleyici, (kayit_kareleri[0].x + 10), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
+//
+//            yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
+//            yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
+//            yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+//            yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+//            yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+//
+//            yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
+//            yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
+//            yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
+//            yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
+//            yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
+//
+//            yazilar[GERI].ciz(isleyici,PencereninBilgisi->pencereEkranGenişlikOranı*(640/2 - 30),PencereninBilgisi->pencereEkranYükseklikOranı*(480 - 50));
+//        }
 
-            yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
-            yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
-            yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-            yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-            yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-
-            yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
-            yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
-            yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
-            yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
-            yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-
-            yazilar[GERI].ciz(isleyici,PencereninBilgisi->pencereEkranGenişlikOranı*(640/2 - 30),PencereninBilgisi->pencereEkranYükseklikOranı*(480 - 50));
-        }
-
-        else if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
-        {
+        /*else*/ //if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
+        //{
             yazilar[KAYIT_1_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[0].y + 5);
             yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[0].y + 20);
             yazilar[KAYIT_1_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[0].y + 80);
@@ -255,7 +259,7 @@ class KAYIT_SECIM
             yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + 80);
 
             yazilar[GERI].ciz(isleyici,(640/2 - 30),480 - 50);
-        }
+        //}
 
     }
 
@@ -350,48 +354,48 @@ class KAYIT_SECIM
         {
             tusaBasildimi = false;
         }
-        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
-        {
-            kayit_kareleri[0] = { (PencereninBilgisi->temelPencereGenişlik / 6)*PencereninBilgisi->pencereEkranGenişlikOranı, PencereninBilgisi->pencereEkranYükseklikOranı*(PencereninBilgisi->temelPencereYükseklik / 5 - 15), PencereninBilgisi->pencereEkranYükseklikOranı*(4*PencereninBilgisi->temelPencereGenişlik/6), 100*PencereninBilgisi->pencereEkranYükseklikOranı };
-            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y+110*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
-            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y+110*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
-            for(int i = 0; i < YAZILAR;i++)
-            {
-                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
-                {
-                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*50);
-                    continue;
-                }
-                if(i==GERI)
-                {
-                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*33);
-                    continue;
-                }
-                yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*20);
-            }
-            dilDeğişim();
-        }
-        else if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
-        {
-            kayit_kareleri[0] = { PencereninBilgisi->temelPencereGenişlik / 6, PencereninBilgisi->temelPencereYükseklik / 5 - 15, 4*PencereninBilgisi->temelPencereGenişlik/6, 100 };
-            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
-            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
-            for(int i = 0; i < YAZILAR;i++)
-            {
-                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
-                {
-                    yazilar[i].fontBoyutuAyarla(50);
-                    continue;
-                }
-                if(i==GERI)
-                {
-                    yazilar[i].fontBoyutuAyarla(33);
-                    continue;
-                }
-                yazilar[i].fontBoyutuAyarla(20);
-            }
-            dilDeğişim();
-        }
+//        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
+//        {
+//            kayit_kareleri[0] = { static_cast<double>(PencereninBilgisi->temelPencereGenişlik / 6)*PencereninBilgisi->pencereEkranGenişlikOranı, PencereninBilgisi->pencereEkranYükseklikOranı*(PencereninBilgisi->temelPencereYükseklik / 5.0d - 15.0D), PencereninBilgisi->pencereEkranYükseklikOranı*(4*PencereninBilgisi->temelPencereGenişlik/6), 100.0d*PencereninBilgisi->pencereEkranYükseklikOranı };
+//            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y+110.0d*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
+//            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y+110.0D*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
+//            for(int i = 0; i < YAZILAR;i++)
+//            {
+//                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
+//                {
+//                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*50);
+//                    continue;
+//                }
+//                if(i==GERI)
+//                {
+//                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*33);
+//                    continue;
+//                }
+//                yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*20);
+//            }
+//            dilDeğişim();
+//        }
+        /*else*/ /*if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)*/
+//        {
+//            kayit_kareleri[0] = { PencereninBilgisi->temelPencereGenişlik / 6, PencereninBilgisi->temelPencereYükseklik / 5 - 15, 4*PencereninBilgisi->temelPencereGenişlik/6, 100 };
+//            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+//            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
+//            for(int i = 0; i < YAZILAR;i++)
+//            {
+//                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
+//                {
+//                    yazilar[i].fontBoyutuAyarla(50);
+//                    continue;
+//                }
+//                if(i==GERI)
+//                {
+//                    yazilar[i].fontBoyutuAyarla(33);
+//                    continue;
+//                }
+//                yazilar[i].fontBoyutuAyarla(20);
+//            }
+//            dilDeğişim();
+//        }
         return 1;
     }
 

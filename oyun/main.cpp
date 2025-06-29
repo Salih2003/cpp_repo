@@ -74,7 +74,8 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
     ana_menu.tanimlamalar(ayar.isleyiciAl());
     sec_menu.tanimlamalar(ayar.isleyiciAl());
     kayit_menu.tanimlamalar(ayar.isleyiciAl(),&ayar.pencereBilgisi);
-
+    std::cout << "Ekranın genişlik: " << ayar.pencereBilgisi.ekranGenişliği << std::endl << "Ekranın yükseklik: " << ayar.pencereBilgisi.ekranYüksekliği << std::endl << "Pencere Standart Genişlik: " << ayar.pencereBilgisi.temelPencereGenişlik << std::endl <<  "Pencere Standart Yükseklik: " << ayar.pencereBilgisi.temelPencereYükseklik << std::endl;
+    std::cout << "OranlarGY: " << ayar.pencereBilgisi.pencereEkranGenişlikOranı << " " << ayar.pencereBilgisi.pencereEkranYükseklikOranı << std::endl;
     Uint32 kareBasla, kareÖdü;
     static int frameCount = 0;
     static Uint32 lastTime = 0;
