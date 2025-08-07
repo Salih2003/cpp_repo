@@ -34,18 +34,20 @@
 			<Add option="-Os" />
 			<Add option="-Wall" />
 			<Add option="-std=c++23" />
-			<Add option="-std=c23" />
+			<Add option="-std=c11" />
 			<Add option="-m64" />
+			<Add option="-DCRYPTOPP_DISABLE_ASM" />
 			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/include" />
 			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/include" />
 			<Add directory="C:/betiklik/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include" />
 			<Add directory="C:/Program Files/CodeBlocks/MinGW/include/json_lib" />
+			<Add directory="../../betiklik/crypto++/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-static-libstdc++" />
 			<Add option="-static-libgcc" />
 			<Add option="-m64" />
-			<Add option="-lSDL2_image -lSDL2_ttf" />
+			<Add option="-lSDL2_image -lSDL2_ttf -lcryptopp" />
 			<Add library="mingw32" />
 			<Add library="SDL2main" />
 			<Add library="SDL2.dll" />
@@ -57,6 +59,7 @@
 			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/lib" />
 			<Add directory="C:/betiklik/SDL2_image-2.8.2/x86_64-w64-mingw32/lib" />
 			<Add directory="C:/betiklik/SDL_TTF/lib" />
+			<Add directory="../../betiklik/crypto++/lib" />
 		</Linker>
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
@@ -69,10 +72,12 @@
 		<Unit filename="include/Yazi.hpp" />
 		<Unit filename="include/basliklar.hpp" />
 		<Unit filename="include/genelAyar.hpp" />
+		<Unit filename="include/kilitle.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Doku.cpp" />
 		<Unit filename="src/Yazi.cpp" />
 		<Unit filename="src/genelAyar.cpp" />
+		<Unit filename="src/kilitle.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 			<wxsmith version="1">

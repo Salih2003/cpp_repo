@@ -74,8 +74,8 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
     ana_menu.tanimlamalar(ayar.isleyiciAl());
     sec_menu.tanimlamalar(ayar.isleyiciAl());
     kayit_menu.tanimlamalar(ayar.isleyiciAl(),&ayar.pencereBilgisi);
-    std::cout << "Ekranın genişlik: " << ayar.pencereBilgisi.ekranGenişliği << std::endl << "Ekranın yükseklik: " << ayar.pencereBilgisi.ekranYüksekliği << std::endl << "Pencere Standart Genişlik: " << ayar.pencereBilgisi.temelPencereGenişlik << std::endl <<  "Pencere Standart Yükseklik: " << ayar.pencereBilgisi.temelPencereYükseklik << std::endl;
-    std::cout << "OranlarGY: " << ayar.pencereBilgisi.pencereEkranGenişlikOranı << " " << ayar.pencereBilgisi.pencereEkranYükseklikOranı << std::endl;
+    //std::cout << "Ekranın genişlik: " << ayar.pencereBilgisi.ekranGenişliği << std::endl << "Ekranın yükseklik: " << ayar.pencereBilgisi.ekranYüksekliği << std::endl << "Pencere Standart Genişlik: " << ayar.pencereBilgisi.temelPencereGenişlik << std::endl <<  "Pencere Standart Yükseklik: " << ayar.pencereBilgisi.temelPencereYükseklik << std::endl;
+    //std::cout << "OranlarGY: " << ayar.pencereBilgisi.pencereEkranGenişlikOranı << " " << ayar.pencereBilgisi.pencereEkranYükseklikOranı << std::endl;
     Uint32 kareBasla, kareÖdü;
     static int frameCount = 0;
     static Uint32 lastTime = 0;
@@ -85,7 +85,7 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
         SDL_Event olay;
         while(SDL_PollEvent(&olay) != 0)
         {
-            if(olay.type == SDL_QUIT || olay.type == SDL_KEYDOWN && olay.key.keysym.sym == SDLK_ESCAPE)
+            if((olay.type == SDL_QUIT) || (olay.type == SDL_KEYDOWN && olay.key.keysym.sym == SDLK_ESCAPE))
             {
                 kapanis:
                 std::cout << "Program Kapatıldı :D" << std::endl;
@@ -174,7 +174,7 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
         fps = currentTime - lastTime;
         if (fps >= 1000)
         { // Her bir saniyede FPS hesapla
-            std::printf("FPS: %d\n", frameCount);
+            //std::printf("FPS: %d\n", frameCount);
 
             frameCount = 0;
             lastTime = currentTime;

@@ -4,6 +4,7 @@
 #include "genelAyar.hpp"
 #include "Doku.hpp"
 #include "Yazi.hpp"
+#include "kilitle.hpp"
 
 #include <iostream>
 #include <fstream>

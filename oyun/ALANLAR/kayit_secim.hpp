@@ -43,22 +43,51 @@ class KAYIT_SECIM
             }
             dil = ayarJSON["dil"];
         }
+        kilitle k("DOSYALAR/VERI/açacaklar.key");
+//ef437a9a5a47099ada42932f8f2d0a7bfdbc722926cb69d4264af4411e0b7b45
+//        k.EncryptFile("DOSYALAR/VERI/ilkKayit.txt","DOSYALAR/VERI/ilkKayit.dat");
+//        k.EncryptFile("DOSYALAR/VERI/ikinciKayit.txt","DOSYALAR/VERI/ikinciKayit.dat");
+//        k.EncryptFile("DOSYALAR/VERI/ucuncuKayit.txt","DOSYALAR/VERI/ucuncuKayit.dat");
+
+        if(k.DecryptFileToData("DOSYALAR/VERI/ilkKayit.dat",kayitString[0]))
+        {
+           if(k.DecryptFileToData("DOSYALAR/VERI/ikinciKayit.dat",kayitString[1]))
+           {
+                if(k.DecryptFileToData("DOSYALAR/VERI/ucuncuKayit.dat",kayitString[2]))
+                {
+                  std::cout << "başarılı \n";
+                }
+           }
+        }
+        else
+        {
+            std::cerr << "başarısız....\n";
+            return;
+        }
+        kayitJSONlari[0] = nlohmann::json::parse(kayitString[0]);
+        kayitJSONlari[1] = nlohmann::json::parse(kayitString[1]);
+        kayitJSONlari[2] = nlohmann::json::parse(kayitString[2]);
+        for(int i = 0; i < 3; i++)
+        {
+            std::cout << "json " << i << "içindeki veriler: " << kayitJSONlari[i].dump(4) << std:: endl;
+        }
+
         if(dil == "Türkçe")
         {
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
 
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
 
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
@@ -67,20 +96,20 @@ class KAYIT_SECIM
         }
         else if(dil == "English")
         {
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
 
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
 
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
@@ -89,20 +118,20 @@ class KAYIT_SECIM
         }
         else
         {
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
 
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
 
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
@@ -142,6 +171,9 @@ class KAYIT_SECIM
         }
         else
         {
+            yazilar[KAYIT_1_DEVAM].renkMod(255,255,255);
+            yazilar[KAYIT_1_SIL].renkMod(255,255,255);
+            yazilar[KAYIT_1_YENI].renkMod(255,255,0xFF);
             SDL_SetRenderDrawColor(isleyici,0xFF,0xFF,0xFF,0xFF);
         }
         SDL_RenderDrawRect(isleyici,&kayit_kareleri[0]);
@@ -172,6 +204,9 @@ class KAYIT_SECIM
         }
         else
         {
+            yazilar[KAYIT_2_DEVAM].renkMod(255,255,255);
+            yazilar[KAYIT_2_SIL].renkMod(255,255,255);
+            yazilar[KAYIT_2_YENI].renkMod(255,255,0xFF);
             SDL_SetRenderDrawColor(isleyici,0xFF,0xFF,0xFF,0xFF);
         }
         SDL_RenderDrawRect(isleyici,&kayit_kareleri[1]);
@@ -202,6 +237,9 @@ class KAYIT_SECIM
         }
         else
         {
+            yazilar[KAYIT_3_DEVAM].renkMod(255,255,255);
+            yazilar[KAYIT_3_SIL].renkMod(255,255,255);
+            yazilar[KAYIT_3_YENI].renkMod(255,255,0xFF);
             SDL_SetRenderDrawColor(isleyici,0xFF,0xFF,0xFF,0xFF);
         }
         SDL_RenderDrawRect(isleyici,&kayit_kareleri[2]);
@@ -214,32 +252,6 @@ class KAYIT_SECIM
         {
             yazilar[GERI].renkMod(0xFF,0xFF,0xFF);
         }
-
-//        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
-//        {
-//            yazilar[KAYIT_1_SURE].ciz(isleyici,(kayit_kareleri[0].x + 5), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı* 5));
-//            yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,(kayit_kareleri[0].x + 20), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*20));
-//            yazilar[KAYIT_1_DEVAM].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w - 55), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
-//            yazilar[KAYIT_1_SIL].ciz(isleyici,(kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10),(kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
-//            yazilar[KAYIT_1_YENI].ciz(isleyici, (kayit_kareleri[0].x + 10), (kayit_kareleri[0].y + PencereninBilgisi->pencereEkranYükseklikOranı*80));
-//
-//            yazilar[KAYIT_2_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
-//            yazilar[KAYIT_2_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
-//            yazilar[KAYIT_2_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-//            yazilar[KAYIT_2_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-//            yazilar[KAYIT_2_YENI].ciz(isleyici, kayit_kareleri[1].x + 10, kayit_kareleri[1].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-//
-//            yazilar[KAYIT_3_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*5);
-//            yazilar[KAYIT_3_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*20);
-//            yazilar[KAYIT_3_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
-//            yazilar[KAYIT_3_SIL].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w  / 2 - 10, kayit_kareleri[2].y +PencereninBilgisi->pencereEkranYükseklikOranı* 80);
-//            yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + PencereninBilgisi->pencereEkranYükseklikOranı*80);
-//
-//            yazilar[GERI].ciz(isleyici,PencereninBilgisi->pencereEkranGenişlikOranı*(640/2 - 30),PencereninBilgisi->pencereEkranYükseklikOranı*(480 - 50));
-//        }
-
-        /*else*/ //if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)
-        //{
             yazilar[KAYIT_1_SURE].ciz(isleyici,kayit_kareleri[0].x + 5, kayit_kareleri[0].y + 5);
             yazilar[KAYIT_1_ODA_ADI].ciz(isleyici,kayit_kareleri[0].x + 20, kayit_kareleri[0].y + 20);
             yazilar[KAYIT_1_DEVAM].ciz(isleyici,kayit_kareleri[0].x + kayit_kareleri[0].w - 55, kayit_kareleri[0].y + 80);
@@ -259,8 +271,6 @@ class KAYIT_SECIM
             yazilar[KAYIT_3_YENI].ciz(isleyici, kayit_kareleri[0].x + 10, kayit_kareleri[2].y + 80);
 
             yazilar[GERI].ciz(isleyici,(640/2 - 30),480 - 50);
-        //}
-
     }
 
     void gecilmeDurumuAyarla(bool durum)
@@ -277,8 +287,6 @@ class KAYIT_SECIM
 
     uint8_t olaylar(SDL_Event* olay)
     {
-        //const Uint8* tuslar = SDL_GetKeyboardState(NULL);
-
         if(!tusaBasildimi)
         {
             if(olay->type == SDL_KEYDOWN)
@@ -354,48 +362,7 @@ class KAYIT_SECIM
         {
             tusaBasildimi = false;
         }
-//        if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_FULLSCREEN)
-//        {
-//            kayit_kareleri[0] = { static_cast<double>(PencereninBilgisi->temelPencereGenişlik / 6)*PencereninBilgisi->pencereEkranGenişlikOranı, PencereninBilgisi->pencereEkranYükseklikOranı*(PencereninBilgisi->temelPencereYükseklik / 5.0d - 15.0D), PencereninBilgisi->pencereEkranYükseklikOranı*(4*PencereninBilgisi->temelPencereGenişlik/6), 100.0d*PencereninBilgisi->pencereEkranYükseklikOranı };
-//            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y+110.0d*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
-//            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y+110.0D*PencereninBilgisi->pencereEkranYükseklikOranı, kayit_kareleri[0].w, kayit_kareleri[0].h };
-//            for(int i = 0; i < YAZILAR;i++)
-//            {
-//                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
-//                {
-//                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*50);
-//                    continue;
-//                }
-//                if(i==GERI)
-//                {
-//                    yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*33);
-//                    continue;
-//                }
-//                yazilar[i].fontBoyutuAyarla(PencereninBilgisi->pencereEkranYükseklikOranı*20);
-//            }
-//            dilDeğişim();
-//        }
-        /*else*/ /*if(PencereninBilgisi->ekranBayrağı & SDL_WINDOW_SHOWN)*/
-//        {
-//            kayit_kareleri[0] = { PencereninBilgisi->temelPencereGenişlik / 6, PencereninBilgisi->temelPencereYükseklik / 5 - 15, 4*PencereninBilgisi->temelPencereGenişlik/6, 100 };
-//            kayit_kareleri[1] = { kayit_kareleri[0].x, kayit_kareleri[0].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
-//            kayit_kareleri[2] = { kayit_kareleri[0].x, kayit_kareleri[1].y + 110, kayit_kareleri[0].w, kayit_kareleri[0].h };
-//            for(int i = 0; i < YAZILAR;i++)
-//            {
-//                if(i==KAYIT_1_ODA_ADI || i==KAYIT_2_ODA_ADI || i==KAYIT_3_ODA_ADI)
-//                {
-//                    yazilar[i].fontBoyutuAyarla(50);
-//                    continue;
-//                }
-//                if(i==GERI)
-//                {
-//                    yazilar[i].fontBoyutuAyarla(33);
-//                    continue;
-//                }
-//                yazilar[i].fontBoyutuAyarla(20);
-//            }
-//            dilDeğişim();
-//        }
+
         return 1;
     }
 
@@ -426,10 +393,10 @@ class KAYIT_SECIM
     int8_t sira = 1;
     uint8_t yanSıra[3];
     bool gecilmeDurumu = true;
-    std::string dil;
+    std::string dil, kayitString[3];
 
-    std::ifstream ayarDos, dilDos[3];
-    json ayarJSON, dilJSON[3];
+    std::ifstream ayarDos, dilDos[3], kayitDosyalari[3];
+    json ayarJSON, dilJSON[3], kayitJSONlari[3];
 
     const pencereBilgi *PencereninBilgisi;
 
@@ -475,8 +442,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_1_DEVAM].kapat();
             yazilar[KAYIT_1_SIL].kapat();
             yazilar[KAYIT_1_YENI].kapat();
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
@@ -486,8 +453,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_2_DEVAM].kapat();
             yazilar[KAYIT_2_SIL].kapat();
             yazilar[KAYIT_2_YENI].kapat();
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
@@ -497,8 +464,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_3_DEVAM].kapat();
             yazilar[KAYIT_3_SIL].kapat();
             yazilar[KAYIT_3_YENI].kapat();
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[0]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[0]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[0]["yeni"],ak);
@@ -513,8 +480,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_1_DEVAM].kapat();
             yazilar[KAYIT_1_SIL].kapat();
             yazilar[KAYIT_1_YENI].kapat();
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
@@ -524,8 +491,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_2_DEVAM].kapat();
             yazilar[KAYIT_2_SIL].kapat();
             yazilar[KAYIT_2_YENI].kapat();
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
@@ -535,8 +502,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_3_DEVAM].kapat();
             yazilar[KAYIT_3_SIL].kapat();
             yazilar[KAYIT_3_YENI].kapat();
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[1]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[1]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[1]["yeni"],ak);
@@ -551,8 +518,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_1_DEVAM].kapat();
             yazilar[KAYIT_1_SIL].kapat();
             yazilar[KAYIT_1_YENI].kapat();
-            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_1_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[0]["geçen_süre"],ak);
+            yazilar[KAYIT_1_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[0]["oda_adı"],ak);
             yazilar[KAYIT_1_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_1_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_1_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
@@ -562,8 +529,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_2_DEVAM].kapat();
             yazilar[KAYIT_2_SIL].kapat();
             yazilar[KAYIT_2_YENI].kapat();
-            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_2_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[1]["geçen_süre"],ak);
+            yazilar[KAYIT_2_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[1]["oda_adı"],ak);
             yazilar[KAYIT_2_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_2_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_2_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
@@ -573,8 +540,8 @@ class KAYIT_SECIM
             yazilar[KAYIT_3_DEVAM].kapat();
             yazilar[KAYIT_3_SIL].kapat();
             yazilar[KAYIT_3_YENI].kapat();
-            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],"Süre",ak);
-            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],dilJSON[2]["oda_adı"],ak);
+            yazilar[KAYIT_3_SURE].yaziOlustur(this->isleyici,fontt[1],kayitJSONlari[2]["geçen_süre"],ak);
+            yazilar[KAYIT_3_ODA_ADI].yaziOlustur(this->isleyici,fontt[0],kayitJSONlari[2]["oda_adı"],ak);
             yazilar[KAYIT_3_DEVAM].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["devam"],ak);
             yazilar[KAYIT_3_SIL].yaziOlustur(this->isleyici,fontt[1],dilJSON[2]["sil"],ak);
             yazilar[KAYIT_3_YENI].yaziOlustur(this->isleyici, fontt[1], dilJSON[2]["yeni"],ak);
