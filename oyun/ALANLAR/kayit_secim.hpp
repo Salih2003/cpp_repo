@@ -351,10 +351,18 @@ class KAYIT_SECIM
             }
                 if(olay->key.keysym.scancode == SDL_SCANCODE_Z)
                 {
-                    if(sira == 4)
+                    switch(sira)
                     {
-                        gecilmeDurumuAyarla(true);
-                        return 2;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            gecilmeDurumuAyarla(true);
+                            return 2;
+                            break;
                     }
                 }
         }

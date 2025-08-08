@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
-	<ActiveTarget name="Debug" />
-	<File name="src\Doku.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="804" topLine="0" />
-		</Cursor>
-	</File>
+	<ActiveTarget name="Release" />
 	<File name="include\Doku.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="104" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ALANLAR\ana_menu.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7454" topLine="162" />
-		</Cursor>
-	</File>
-	<File name="include\basliklar.hpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="178" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="ALANLAR\secenekler_menu.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -27,14 +12,19 @@
 			<Cursor1 position="13174" topLine="340" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\kilitle.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1739" topLine="55" />
+			<Cursor1 position="0" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="include\genelAyar.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ALANLAR\kayit_secim.hpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="896" topLine="2" />
+			<Cursor1 position="16953" topLine="333" />
+		</Cursor>
+	</File>
+	<File name="include\basliklar.hpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="178" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="include\Yazi.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,24 +32,24 @@
 			<Cursor1 position="527" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ALANLAR\alan_basliklar.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Yazi.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="103" topLine="0" />
+			<Cursor1 position="1037" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="include\kilitle.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ALANLAR\ana_menu.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1400" topLine="18" />
+			<Cursor1 position="7454" topLine="162" />
 		</Cursor>
 	</File>
 	<File name="src\kilitle.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="530" topLine="11" />
+			<Cursor1 position="463" topLine="203" />
 		</Cursor>
 	</File>
-	<File name="ALANLAR\kayit_secim.hpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2559" topLine="42" />
+			<Cursor1 position="1739" topLine="55" />
 		</Cursor>
 	</File>
 	<File name="src\genelAyar.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -67,9 +57,19 @@
 			<Cursor1 position="2131" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="src\Yazi.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Doku.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1037" topLine="3" />
+			<Cursor1 position="804" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\genelAyar.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="896" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="ALANLAR\alan_basliklar.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="103" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
