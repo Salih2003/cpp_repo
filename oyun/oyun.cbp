@@ -13,7 +13,9 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
 					<Add directory="include" />
+					<Add directory="ALANLAR/ODALAR/include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -23,7 +25,9 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
 					<Add directory="include" />
+					<Add directory="ALANLAR/ODALAR/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,10 +35,11 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-fexpensive-optimizations" />
 			<Add option="-Os" />
 			<Add option="-Wall" />
 			<Add option="-std=c++23" />
-			<Add option="-std=c11" />
+			<Add option="-std=c23" />
 			<Add option="-m64" />
 			<Add option="-DCRYPTOPP_DISABLE_ASM" />
 			<Add directory="C:/betiklik/SDL2-2.30.0/x86_64-w64-mingw32/include" />
@@ -64,6 +69,8 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="ALANLAR/ODALAR/include/BASLANGIC_ODASI.hpp" />
+		<Unit filename="ALANLAR/ODALAR/src/BASLANGIC_ODASI.cpp" />
 		<Unit filename="ALANLAR/alan_basliklar.hpp" />
 		<Unit filename="ALANLAR/ana_menu.hpp" />
 		<Unit filename="ALANLAR/kayit_secim.hpp" />

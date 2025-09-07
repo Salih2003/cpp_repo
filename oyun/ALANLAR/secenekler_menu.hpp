@@ -15,7 +15,7 @@ class SECENEKLER_MENU
             kucukYazi = TTF_OpenFont("VARLIKLAR/TTF/Instructions.ttf",50);
 
             imlecDoku.dokuYukle(isleyici,"VARLIKLAR/PNG/imleç.png");
-            imlecDoku.konumAl(&imlecX,&imlecY);
+            imlecDoku.konumAl(imlecX,imlecY);
             imlecX = 40;
             imlecY = 100;
 //            yazilar[0].yaziOlustur(isleyici,ortaYazi,"seçenekler",ak);

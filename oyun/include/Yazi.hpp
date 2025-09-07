@@ -16,6 +16,8 @@ class Yazi
     protected:
 
     private:
+        std::vector<SDL_Texture*> dokuListesi;
+        std::vector<int> yukseklikListesi;
         SDL_Texture* doku;
         TTF_Font *font;
         int x,y,w,h;

@@ -102,7 +102,9 @@ auto* oldCerrBuf = std::cerr.rdbuf(&cerrBuf);
                 if(tamEkranSayac % 2 == 0)
                 {
                     ayar.tamEkran(1);
+                    #ifdef NDEBUG
                     SDL_ShowCursor(SDL_DISABLE);
+                    #endif // NDEBUG
                     tamEkranSayac++;
                 }
                 else

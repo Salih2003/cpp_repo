@@ -13,5 +13,9 @@
     "devam": "Continue",
     "sil": "Delete",
     "yeni": "New",
-    "GERİ": "BACK"
+    "GERİ": "BACK",
+    "oyun_açıklama_tümcesi_1": "Dünya çok zor zamanlardan geçtikten sonra (\"insanlıktan dolayı...\")\nsonsuz bir kışa girdi. Ayrıca tüm canlılar az çok mutasyona uğradı. Mutasyona uğramayan\n",
+    "oyun_açıklama_tümcesi_2": "belli kısım insanlar (\"bunlar felaketi tahmin edip korunan bilim insanları\") bir dağın zirvesine çıkıp\nkendilerini mutasyonlu insanlardan koruyabilecekleri bir yarım küre biçminde şeffaf",
+    "oyun_açıklama_tümcesi_3": "bir sığınak inşa ettiler.\nSen ise mutasyona uğramış ve kış nedeniyle donma noktasına gelmiş bir insansın. Ancak mutasyonunu çok iyi saklayarak bilim insanlarına sıcak sığınaklarına giriş",
+    "oyun_açıklama_tümcesi_4": "için ikna ettin.\nTek amacın mutasyonunu gizleyip huzurluca yaşamak. Denetimlere gelirsek ok tuşları,z ve x."
 }

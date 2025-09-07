@@ -1,4 +1,5 @@
 {
     "oda_adı": "Oda Adı",
-    "geçen_süre": "00:00:00"
+    "geçen_süre": "00:00:00",
+    "yeni_oyun_mu": true
 }

@@ -17,10 +17,10 @@ void Doku::boyutAl(int w, int h)
     h = this->h;
 }
 
-void Doku::konumAl(int *x, int *y)
+void Doku::konumAl(int x, int y)
 {
-    *x = this->x;
-    *y = this->y;
+    x = this->x;
+    y = this->y;
 }
 //sorunlu olabilir ^
 void Doku::ciz(SDL_Renderer* isleyici,int x, int y)

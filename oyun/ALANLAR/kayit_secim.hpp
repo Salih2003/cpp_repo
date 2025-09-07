@@ -44,7 +44,7 @@ class KAYIT_SECIM
             dil = ayarJSON["dil"];
         }
         kilitle k("DOSYALAR/VERI/açacaklar.key");
-//ef437a9a5a47099ada42932f8f2d0a7bfdbc722926cb69d4264af4411e0b7b45
+
 //        k.EncryptFile("DOSYALAR/VERI/ilkKayit.txt","DOSYALAR/VERI/ilkKayit.dat");
 //        k.EncryptFile("DOSYALAR/VERI/ikinciKayit.txt","DOSYALAR/VERI/ikinciKayit.dat");
 //        k.EncryptFile("DOSYALAR/VERI/ucuncuKayit.txt","DOSYALAR/VERI/ucuncuKayit.dat");

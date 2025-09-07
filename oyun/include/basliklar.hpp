@@ -8,6 +8,11 @@
 #include <box2d/box2d.h>
 
 #include <iostream>
+#include <map>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <sstream>
 
 struct pencereBilgi
 {
